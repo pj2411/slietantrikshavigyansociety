@@ -1157,12 +1157,12 @@
     </div>
 
     <!-- Image Lightbox Modal -->
-    <div id="image-lightbox" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/90 backdrop-blur-md p-4 cursor-pointer" onclick="closeLightbox()">
+    <div id="image-lightbox" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/90 backdrop-blur-md p-4 cursor-pointer opacity-0 pointer-events-none transition-opacity duration-200" onclick="closeLightbox()">
         <button class="absolute top-6 right-6 text-white/80 hover:text-white text-3xl font-bold focus:outline-none" onclick="closeLightbox()">
             <i class="fa-solid fa-xmark"></i>
         </button>
         <div class="max-w-5xl max-h-[85vh] w-full flex items-center justify-center p-2" onclick="event.stopPropagation()">
-            <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[80vh] rounded-xl object-contain shadow-2xl border border-white/10 modal-animate-enter">
+            <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[80vh] rounded-xl object-contain shadow-2xl border border-white/10 transform scale-95 transition-transform duration-200">
         </div>
     </div>
 

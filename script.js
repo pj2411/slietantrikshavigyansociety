@@ -260,15 +260,22 @@ function openLightbox(src) {
     const img = document.getElementById('lightbox-img');
     if (lightbox && img) {
         img.src = src;
-        lightbox.classList.remove('hidden');
+        lightbox.classList.remove('opacity-0', 'pointer-events-none');
+        lightbox.classList.add('opacity-100');
+        img.classList.remove('scale-95');
+        img.classList.add('scale-100');
         document.body.style.overflow = 'hidden';
     }
 }
 
 function closeLightbox() {
     const lightbox = document.getElementById('image-lightbox');
-    if (lightbox) {
-        lightbox.classList.add('hidden');
+    const img = document.getElementById('lightbox-img');
+    if (lightbox && img) {
+        lightbox.classList.remove('opacity-100');
+        lightbox.classList.add('opacity-0', 'pointer-events-none');
+        img.classList.remove('scale-100');
+        img.classList.add('scale-95');
         document.body.style.overflow = '';
     }
 }

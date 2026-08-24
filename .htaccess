@@ -3,6 +3,9 @@
 # SLIET Antriksha Vigyan Society
 # ====================================================================
 
+# 0. Set Primary Index Page
+DirectoryIndex index.html
+
 # 1. Force HTTPS Redirection
 <IfModule mod_rewrite.c>
     RewriteEngine On
