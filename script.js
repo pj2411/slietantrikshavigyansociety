@@ -254,10 +254,30 @@ function closeJoinModal() {
     if (modal) modal.classList.add('hidden');
 }
 
+// Lightbox Controls
+function openLightbox(src) {
+    const lightbox = document.getElementById('image-lightbox');
+    const img = document.getElementById('lightbox-img');
+    if (lightbox && img) {
+        img.src = src;
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('image-lightbox');
+    if (lightbox) {
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+}
+
 // Keyboard ESC listener & backdrop click listener
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeJoinModal();
+        closeLightbox();
     }
 });
 

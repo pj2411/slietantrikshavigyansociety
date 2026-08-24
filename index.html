@@ -144,8 +144,8 @@
                 <a href="#publications" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Publications</a>
                 <!-- <a href="#domains" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Domains</a> -->
                 <a href="#events" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Events</a>
-                <a href="#contact" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Contact</a>
                 <a href="#about" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">About</a>
+                <a href="#contact" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Contact</a>
             </div>
 
             <!-- Action Controls: Theme Switcher & Join Button -->
@@ -187,9 +187,9 @@
             <!-- <a href="#domains" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Domains</a> -->
             <a href="#events"
                 class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Events</a>
+            <a href="#about" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">About</a>
             <a href="#contact"
                 class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Contact</a>
-            <a href="#about" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">About</a>
             <button onclick="openJoinModal()"
                 class="w-full mt-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm shadow-md">
                 Join Us
@@ -661,8 +661,14 @@
                 <div class="absolute -right-16 -top-16 w-80 h-80 bg-amber-400/15 dark:bg-sky-500/15 rounded-full blur-3xl pointer-events-none"></div>
 
                 <!-- Event Header & Branding -->
-                <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 border-b border-slate-200 dark:border-slate-800 pb-6">
-                    <div>
+                <div class="flex flex-col lg:flex-row items-start justify-between gap-8 border-b border-slate-200 dark:border-slate-800 pb-6">
+                    <!-- Event Poster -->
+                    <div class="w-full lg:w-1/3 shrink-0 rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 relative group cursor-pointer" onclick="openLightbox('images/events/national_space_day_2026/poster.jpg')">
+                        <img src="images/events/national_space_day_2026/poster.jpg" alt="National Space Day 2026 Poster" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+                    
+                    <div class="flex-1">
                         <div class="flex flex-wrap items-center gap-2.5 mb-3">
                             <span class="px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-xs font-mono font-extrabold tracking-wider uppercase shadow-sm">
                                 <i class="fa-solid fa-rocket mr-1"></i> SLIET × ISRO
@@ -757,23 +763,34 @@
                     </div>
                 </div>
 
-                <!-- Event Perks & ISRO Certificates Banner -->
-                <div class="p-6 rounded-2xl bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-amber-500/10 border border-indigo-200 dark:border-indigo-800/60 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-                    <div class="space-y-1">
-                        <h5 class="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                            <i class="fa-solid fa-award text-amber-500"></i> Official ISRO Participant Perks & Certificates
-                        </h5>
-                        <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                            📄 <strong>Soft-copy certificate from ISRO</strong> for all participants &nbsp;|&nbsp; 🎁 <strong>Souvenir from ISRO</strong> for every participant!
-                        </p>
+
+
+            <!-- Event Highlights Gallery -->
+            <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800">
+                <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-camera text-indigo-500"></i> Event Highlights
+                </h4>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative" onclick="openLightbox('images/events/national_space_day_2026/photo1.jpg')">
+                        <img src="images/events/national_space_day_2026/photo1.jpg" alt="Event Photo 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
-
-                    <button onclick="openJoinModal()" class="w-full md:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-xs tracking-wider uppercase shadow-md hover:scale-105 transition-all shrink-0">
-                        Register via Event Form <i class="fa-solid fa-arrow-right ml-1"></i>
-                    </button>
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative" onclick="openLightbox('images/events/national_space_day_2026/photo2.jpg')">
+                        <img src="images/events/national_space_day_2026/photo2.jpg" alt="Event Photo 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative" onclick="openLightbox('images/events/national_space_day_2026/photo3.jpg')">
+                        <img src="images/events/national_space_day_2026/photo3.jpg" alt="Event Photo 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative" onclick="openLightbox('images/events/national_space_day_2026/photo4.jpg')">
+                        <img src="images/events/national_space_day_2026/photo4.jpg" alt="Event Photo 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
                 </div>
-
             </div>
+
+        </div>
 
             <!-- Past Events & Archives -->
             <div class="mt-16 reveal-on-scroll">
@@ -783,7 +800,11 @@
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="past-events-grid">
                     <!-- Example of a past event card that was moved here -->
-                    <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm opacity-90 hover:opacity-100 transition-opacity">
+                    <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm opacity-90 hover:opacity-100 transition-opacity flex flex-col">
+                        <div class="w-full overflow-hidden rounded-xl mb-4 relative group border border-slate-100 dark:border-slate-800 cursor-pointer" onclick="openLightbox('images/events/past_events/event1.jpg')">
+                            <img src="images/events/past_events/event1.jpg" alt="Observational Astronomy Event" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-indigo-500/5 mix-blend-overlay"></div>
+                        </div>
                         <div class="flex justify-between items-start mb-4">
                             <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-mono font-bold uppercase">
                                 Past Event
@@ -1132,6 +1153,16 @@
                 <span>Proceed to Google Form</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
             </a>
+        </div>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div id="image-lightbox" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/90 backdrop-blur-md p-4 cursor-pointer" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white/80 hover:text-white text-3xl font-bold focus:outline-none" onclick="closeLightbox()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-5xl max-h-[85vh] w-full flex items-center justify-center p-2" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[80vh] rounded-xl object-contain shadow-2xl border border-white/10 modal-animate-enter">
         </div>
     </div>
 

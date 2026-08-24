@@ -107,7 +107,11 @@ All website events are managed inside **`index.html`** under `<section id="event
 
 ```html
 <!-- Past Event Card Template -->
-<div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm opacity-90 hover:opacity-100 transition-opacity">
+<div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm opacity-90 hover:opacity-100 transition-opacity flex flex-col">
+    <div class="w-full overflow-hidden rounded-xl mb-4 relative group border border-slate-100 dark:border-slate-800 cursor-pointer" onclick="openLightbox('images/events/past_events/event1.jpg')">
+        <img src="images/events/past_events/event1.jpg" alt="Event Name" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-indigo-500/5 mix-blend-overlay"></div>
+    </div>
     <div class="flex justify-between items-start mb-4">
         <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-mono font-bold uppercase">Past Event</span>
         <span class="text-xs font-mono text-slate-500">Event Date Here</span>
@@ -119,6 +123,38 @@ All website events are managed inside **`index.html`** under `<section id="event
 </div>
 ```
 4. Now, you can safely update the main **Featured Event** block at the top of the Events section with your brand new event details (as shown in Method A).
+
+---
+
+### 🖼️ Method C: How to Add & Update Event Images
+
+To maintain a clean and structured layout, all event graphics are stored in organized subfolders inside `images/events/`:
+
+#### 1. Image Directories
+* **Featured Event Images**: Save in `images/events/national_space_day_2026/`
+* **Past Events Images**: Save in `images/events/past_events/`
+
+#### 2. Filename Mappings
+For the **National Space Day 2026** banner and highlights gallery, name your files exactly as follows:
+* **`poster.jpg`**: The main landscape/group photo shown next to the event description.
+* **`photo1.jpg`**: The official marketing poster (rockets banner).
+* **`photo2.jpg`**, **`photo3.jpg`**, **`photo4.jpg`**: Highlights photos from the event (award ceremonies, activities).
+* **`event1.jpg`**, **`event2.jpg`**, etc.: Thumbnails for archived past events under `images/events/past_events/`.
+
+*Note: If you use a `.png` file instead, simply open `index.html`, search for the file path, and change the extension from `.jpg` to `.png`.*
+
+#### 3. Image Full-Screen Lightbox (Viewer)
+The website includes an interactive full-screen image viewer. Clicking on any event poster or gallery image expands it to full screen.
+* To make a new image clickable for full-screen view in HTML:
+  1. Add the `cursor-pointer` class to the outer wrapper `div`.
+  2. Add `onclick="openLightbox('path/to/image.jpg')"` to the wrapper `div`.
+  
+  **Example:**
+  ```html
+  <div class="cursor-pointer" onclick="openLightbox('images/events/national_space_day_2026/photo1.jpg')">
+      <img src="images/events/national_space_day_2026/photo1.jpg" alt="...">
+  </div>
+  ```
 
 ---
 
