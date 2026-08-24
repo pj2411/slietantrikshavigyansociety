@@ -62,6 +62,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. Initialize Research & Publications Engine
     initPublications();
+
+    // 6. Initialize Latest Event Announcement Popup
+    initEventPopup();
 });
 
 // Theme Switcher Logic (Default: Light Mode on page open)
@@ -744,6 +747,51 @@ function showToast(message) {
         toast.style.transform = 'translateY(10px)';
         setTimeout(() => toast.remove(), 300);
     }, 2500);
+}
+
+// Announcement Popup Logic
+function initEventPopup() {
+    const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+    const hasShown = sessionStorage.getItem('eventPopupShown');
+    
+    if (isHomePage && !hasShown) {
+        setTimeout(() => {
+            const popup = document.getElementById('event-popup');
+            const popupCard = popup ? popup.querySelector('.glass-card') : null;
+            if (popup) {
+                popup.classList.remove('opacity-0', 'pointer-events-none');
+                popup.classList.add('opacity-100');
+                if (popupCard) {
+                    popupCard.classList.remove('scale-95');
+                    popupCard.classList.add('scale-100');
+                }
+                sessionStorage.setItem('eventPopupShown', 'true');
+            }
+        }, 1500);
+    }
+}
+
+function closeEventPopup() {
+    const popup = document.getElementById('event-popup');
+    const popupCard = popup ? popup.querySelector('.glass-card') : null;
+    if (popup) {
+        popup.classList.remove('opacity-100');
+        popup.classList.add('opacity-0', 'pointer-events-none');
+        if (popupCard) {
+            popupCard.classList.remove('scale-100');
+            popupCard.classList.add('scale-95');
+        }
+    }
+}
+
+function navigateToEvent() {
+    closeEventPopup();
+    const eventsSection = document.getElementById('events');
+    if (eventsSection) {
+        setTimeout(() => {
+            eventsSection.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+    }
 }
 
 
