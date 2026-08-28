@@ -49,5 +49,5 @@ DirectoryIndex index.html
 </IfModule>
 
 # 6. Error Documents & Custom 404 Routing
-ErrorDocument 404 /index.html
+ErrorDocument 404 /404.html
 

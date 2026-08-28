@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Terms and Conditions - SLIET Antriksha Vigyan Society. Guidelines for website usage, event participation, and academic publication copyrights.">
+    <meta name="author" content="SLIET Antriksha Vigyan Society">
+    <meta name="theme-color" content="#4f46e5">
+
+    <title>Terms & Conditions | SLIET Antriksha Vigyan Society</title>
+
+    <!-- Favicon & PWA Manifest -->
+    <link type="image/png" rel="icon" href="images/favicon.png">
+    <link href="manifest.json" rel="manifest">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link crossorigin rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
+                        space: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        space: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            700: '#1e293b',
+                            800: '#0f172a',
+                            900: '#060814',
+                            cyan: '#0284c7',
+                            purple: '#7c3aed',
+                            indigo: '#4f46e5',
+                            pink: '#ec4899',
+                            sky: '#0ea5e9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 dark:bg-space-900 text-slate-800 dark:text-slate-100 min-h-screen selection:bg-amber-400 selection:text-slate-950 font-sans transition-colors duration-300 antialiased relative overflow-x-hidden">
+
+    <!-- Interactive Canvas Particle Starfield Background -->
+    <canvas id="space-stars" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <a class="flex items-center gap-3.5 group shrink-0" href="index.html#home">
+                <img src="images/logo.png" alt="SLIET Antriksha Vigyan Society Logo"
+                    class="w-12 h-12 object-cover rounded-full shadow-md group-hover:scale-105 transition-transform ring-2 ring-indigo-500/30 dark:ring-sky-400/40">
+                <div>
+                    <span class="font-extrabold text-xl sm:text-2xl tracking-widest block leading-none dark:text-white text-slate-900">SAVS</span>
+                    <span class="text-xs text-amber-700 dark:text-sky-400 tracking-widest uppercase font-mono font-bold block mt-1">SLIET LONGOWAL</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-7 text-base font-bold text-slate-800 dark:text-slate-200">
+                <a class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors" href="index.html#home">Home</a>
+                <a class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors flex items-center gap-1.5" href="index.html#sky-watch"><i class="fa-solid fa-moon text-xs text-amber-600 dark:text-sky-400"></i> Sky Watch</a>
+                <a class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors" href="publications.html">Publications</a>
+                <a class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors" href="index.html#events">Events</a>
+                <a class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors" href="index.html#about">About</a>
+                <a class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors" href="index.html#contact">Contact</a>
+            </div>
+
+            <!-- Action Controls: Theme Switcher & Join Button -->
+            <div class="hidden md:flex items-center space-x-4">
+                <button title="Toggle Light/Dark Theme" class="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-300 dark:border-slate-700 shadow-sm" onclick="toggleTheme()" id="theme-toggle">
+                    <i class="fa-solid fa-sun text-amber-500 text-base" id="theme-toggle-icon"></i>
+                </button>
+
+                <button class="px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm hover:opacity-95 transition-all shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/40 hover:scale-[1.02]" onclick="openJoinModal()">
+                    Join Us <i class="fa-solid fa-arrow-right-long ml-1.5 text-xs"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="flex md:hidden items-center space-x-2">
+                <button class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-amber-400 border border-slate-200 dark:border-slate-700" onclick="toggleTheme()">
+                    <i class="fa-solid fa-sun text-amber-500" id="theme-toggle-icon-mobile"></i>
+                </button>
+                <button class="p-2 text-slate-700 dark:text-slate-300 hover:text-amber-600 focus:outline-none" id="mobile-menu-btn">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div class="hidden md:hidden glass-card border-t border-slate-200 dark:border-slate-800 px-6 py-4 space-y-3 font-semibold text-slate-700 dark:text-slate-200" id="mobile-menu">
+            <a class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1" href="index.html#home">Home</a>
+            <a class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1" href="index.html#sky-watch">Sky Watch</a>
+            <a class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1" href="publications.html">Publications</a>
+            <a class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1" href="index.html#events">Events</a>
+            <a class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1" href="index.html#about">About</a>
+            <a class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1" href="index.html#contact">Contact</a>
+            <button class="w-full mt-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm shadow-md" onclick="openJoinModal()">
+                Join Us
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="pt-36 pb-24 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            
+            <!-- Page Header -->
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="px-3.5 py-1.5 rounded-full bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-sky-300 text-xs font-mono font-bold uppercase tracking-widest inline-flex items-center gap-2 mb-3">
+                    <i class="fa-solid fa-file-contract text-amber-500"></i> Legal Declarations
+                </span>
+                <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">Terms & Conditions</h1>
+                <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
+                    Last Updated: August 2026. Please read these terms carefully before exploring our services and events.
+                </p>
+            </div>
+
+            <!-- Content Card -->
+            <div class="glass-card rounded-3xl p-6 sm:p-10 space-y-8 relative overflow-hidden">
+                <div class="absolute -top-24 -left-24 w-48 h-48 rounded-full bg-indigo-500/5 dark:bg-indigo-500/10 blur-3xl pointer-events-none"></div>
+
+                <!-- Section 1 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5 font-space">
+                        <span class="w-2 h-6 bg-gradient-to-b from-amber-400 to-amber-500 rounded-full inline-block"></span>
+                        1. Terms of Acceptance
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        By accessing and navigating the SLIET Antriksha Vigyan Society (SAVS) website, you acknowledge that you have read, understood, and agreed to be bound by these Terms and Conditions. If you do not agree to these conditions, please refrain from using our web portal.
+                    </p>
+                </section>
+
+                <!-- Section 2 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5 font-space">
+                        <span class="w-2 h-6 bg-gradient-to-b from-indigo-500 to-purple-500 rounded-full inline-block"></span>
+                        2. Academic Publications & Copyright
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        The research papers, cosmological models, telemetry data, and academic content displayed on this website are the intellectual property of Faculty Head <strong class="text-slate-900 dark:text-white font-bold">Dr. Ravi Kant Mishra</strong> and the SAVS Research Wing.
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300 text-xs sm:text-sm pl-2">
+                        <li>You may view, download, and quote these papers for non-commercial, personal study and research.</li>
+                        <li>Commercial redistribution, republication, or claim of ownership over any papers or website assets is strictly prohibited.</li>
+                        <li>Any scholarly citations of these works must reference the original publisher and author details as configured on this site.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 3 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5 font-space">
+                        <span class="w-2 h-6 bg-gradient-to-b from-purple-500 to-pink-500 rounded-full inline-block"></span>
+                        3. Event Registration and Attendance
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        SAVS organizes stargazing observations, CanSat training, and water-rocket competitions. By registering for these events:
+                    </p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600 dark:text-slate-300 text-xs sm:text-sm pl-2">
+                        <li>You agree to provide true and accurate information during Google Form registration.</li>
+                        <li>You agree to follow safety protocols outlined by SAVS event coordinators. Misbehavior or failure to comply with supervisor directions will lead to immediate removal.</li>
+                        <li>Damaging observatory telescopes, projection materials, or laboratory equipment during events will incur direct institutional penalties.</li>
+                    </ul>
+                </section>
+
+                <!-- Section 4 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5 font-space">
+                        <span class="w-2 h-6 bg-gradient-to-b from-pink-500 to-rose-500 rounded-full inline-block"></span>
+                        4. Meteorological Disclaimer
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        Astronomy and sky-watching events are strictly weather-dependent. SAVS reserves the right to postpone, cancel, or modify any observation session due to poor weather (rain, cloud cover, haze) or light pollution. The society is not responsible for any personal inconvenience caused by scheduling changes necessitated by atmospheric variables.
+                    </p>
+                </section>
+
+                <!-- Section 5 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5 font-space">
+                        <span class="w-2 h-6 bg-gradient-to-b from-rose-500 to-amber-500 rounded-full inline-block"></span>
+                        5. Limitation of Liability
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        This website and its content (including coordinates, astronomical alerts, and publications) are provided on an "as is" and "as available" basis. SAVS does not guarantee uninterrupted website access. We are not liable for any discrepancies or damages arising from website technical issues or system downtime.
+                    </p>
+                </section>
+
+                <!-- Section 6 -->
+                <section class="space-y-3">
+                    <h2 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2.5 font-space">
+                        <span class="w-2 h-6 bg-gradient-to-b from-amber-500 to-yellow-400 rounded-full inline-block"></span>
+                        6. Contact Information
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm leading-relaxed">
+                        For any clarifications regarding these Terms and Conditions or administrative policy approvals, please write to us at:
+                        <a href="mailto:antriksha@sliet.ac.in" class="text-indigo-600 dark:text-sky-400 font-bold hover:underline">antriksha@sliet.ac.in</a>.
+                    </p>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-200/30 dark:border-white/10 relative z-10 text-center text-xs text-slate-500 dark:text-slate-400 font-medium">
+        <p>© <span id="current-year">2026</span> SLIET Antriksha Vigyan Society. All rights reserved.</p>
+        <div class="mt-2 space-x-4">
+            <a class="hover:text-indigo-600 dark:hover:text-sky-400 transition-colors" href="privacy-policy.html">Privacy Policy</a>
+            <span>•</span>
+            <a class="text-indigo-600 dark:text-sky-400 font-bold" href="terms.html">Terms & Conditions</a>
+        </div>
+    </footer>
+
+    <!-- Join Us Modal -->
+    <div id="join-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/60 dark:bg-space-900/80 backdrop-blur-md p-4">
+        <div class="glass-card max-w-lg w-full rounded-3xl border border-indigo-200 dark:border-sky-400/40 p-8 relative text-center">
+            <button onclick="closeJoinModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 dark:hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-16 h-16 mx-auto rounded-2xl bg-indigo-50 dark:bg-slate-800/90 border border-indigo-100 dark:border-slate-700 flex items-center justify-center mb-4 shadow-md">
+                <img src="images/google_forms.svg" alt="Google Forms Logo" class="w-10 h-10 object-contain">
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Google Form Registration</h3>
+            <p class="text-xs text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                Click below to open the official SLIET Antriksha Vigyan Society Google Form in a new tab. Submit your student details and domain preferences directly.
+            </p>
+            <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" onclick="closeJoinModal()"
+                class="inline-flex items-center justify-center gap-2.5 w-full py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 hover:scale-[1.02] transition-transform">
+                <img src="images/google_forms.svg" alt="Google Forms" class="w-5 h-5 object-contain">
+                <span>Proceed to Google Form</span>
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

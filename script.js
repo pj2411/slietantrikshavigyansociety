@@ -65,6 +65,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 6. Initialize Latest Event Announcement Popup
     initEventPopup();
+
+    // 7. Initialize Cookie Consent Banner
+    initCookieBanner();
 });
 
 // Theme Switcher Logic (Default: Light Mode on page open)
@@ -791,6 +794,80 @@ function navigateToEvent() {
         setTimeout(() => {
             eventsSection.scrollIntoView({ behavior: 'smooth' });
         }, 300);
+    }
+}
+
+// Cookie Consent Banner Injection & Controls
+function initCookieBanner() {
+    const consent = localStorage.getItem('cookieConsent');
+    if (consent === 'accepted' || consent === 'rejected') {
+        return; // User has already responded
+    }
+
+    // Create banner container element
+    const banner = document.createElement('div');
+    banner.id = 'cookie-consent-banner';
+    banner.className = 'fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-md z-50 glass-card rounded-3xl p-6 border border-indigo-200 dark:border-sky-400/40 shadow-2xl transition-all duration-500 opacity-0 translate-y-10 pointer-events-none';
+    
+    banner.innerHTML = `
+        <div class="relative">
+            <!-- Glowing accent blobs inside banner -->
+            <div class="absolute -top-12 -left-12 w-24 h-24 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 blur-2xl pointer-events-none"></div>
+            
+            <div class="flex items-start gap-4 relative z-10">
+                <div class="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-slate-800/90 border border-indigo-100 dark:border-slate-700 flex items-center justify-center shrink-0 shadow-md">
+                    <i class="fa-solid fa-cookie-bite text-amber-500 text-lg"></i>
+                </div>
+                <div>
+                    <h4 class="font-extrabold text-sm text-slate-900 dark:text-white font-space">Cosmic Cookies & Privacy</h4>
+                    <p class="text-xs text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">
+                        We use minor cookies to store your theme preferences and analyze website telemetry to improve your stargazing experience.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-end gap-3 mt-5 relative z-10">
+                <button id="cookie-reject-btn" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-rose-500 dark:hover:text-rose-400 transition-colors">
+                    Reject
+                </button>
+                <a href="privacy-policy.html" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-sky-400 transition-colors">
+                    Policy
+                </a>
+                <button id="cookie-accept-btn" class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-xs shadow-md hover:shadow-lg hover:scale-[1.02] transition-all">
+                    Accept All
+                </button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(banner);
+
+    // Fade in and slide up banner after 1.2 seconds
+    setTimeout(() => {
+        banner.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+        banner.classList.add('opacity-100', 'translate-y-0');
+    }, 1200);
+
+    // Attach click event listeners
+    document.getElementById('cookie-accept-btn').addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'accepted');
+        closeCookieBanner();
+    });
+
+    document.getElementById('cookie-reject-btn').addEventListener('click', () => {
+        localStorage.setItem('cookieConsent', 'rejected');
+        closeCookieBanner();
+    });
+}
+
+function closeCookieBanner() {
+    const banner = document.getElementById('cookie-consent-banner');
+    if (banner) {
+        banner.classList.remove('opacity-100', 'translate-y-0');
+        banner.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+        setTimeout(() => {
+            banner.remove();
+        }, 500);
     }
 }
 
