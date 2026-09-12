@@ -160,14 +160,15 @@ The website includes an interactive full-screen image viewer. Clicking on any ev
 
 ## 👥 5. How to Add & Edit Team Members (Leadership & Mentorship Network)
 
-In **`index.html`**, under `<section id="team">`, team members are organized into 3 distinct tiers:
+In **`index.html`**, under `<section id="team">`, team members are organized into 4 distinct tiers:
 
-1. **Faculty & Founder** (`class="team-card faculty"`)
-2. **Distinguished Alumni Scholars** (`class="team-card alumni"`) — Ph.D. Degree Awarded
-3. **Current Ph.D. Research Scholars** (`class="team-card student"`) — Pursuing Ph.D. / CSIR & GATE Qualified
+1. **Faculty Members** (`class="team-card faculty"`) — Founder & Faculty Members
+2. **Student Members** (`class="team-card students"`) — Student Members with Branch & Year
+3. **Current Ph.D. Research Scholars** (`class="team-card phd"`) — Pursuing Ph.D. / GATE & CSIR Qualified
+4. **Distinguished Alumni Scholars** (`class="team-card alumni"`) — Ph.D. Degree Awarded
 
 ### 📸 Photos Folder
-All cropped scholar photos are stored in the **`images/team/`** directory:
+All member & scholar photos are stored in the **`images/team/`** directory:
 - `images/team/amritbir_singh.png`
 - `images/team/arunesh_pandey.png`
 - `images/team/chanchal_chawla.png`
@@ -176,19 +177,37 @@ All cropped scholar photos are stored in the **`images/team/`** directory:
 - `images/team/rahul_sharma.png`
 - `images/team/navya_jain.png`
 
-### ➕ Template: Adding a New Scholar Card
-Copy and paste this card snippet inside the `alumni` grid or `student` grid under `<section id="team">`:
+### ➕ Template A: Adding / Editing Student Members
+Copy and paste this card snippet inside the `students` grid under `<section id="team">`:
 
 ```html
-<!-- New Scholar Card -->
-<div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between">
-    <div class="text-center">
-        <img src="images/team/scholar_photo.png" alt="Name" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4">
-        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Dr. Scholar Name</h4>
-        <p class="text-xs text-purple-600 dark:text-purple-400 font-mono font-bold uppercase mt-1">Designation / Role</p>
+<!-- Student Member Card -->
+<div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
+    <div>
+        <img src="images/team/student_photo.png" alt="Student Name" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-amber-500/40 shadow-md mb-4">
+        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
+        <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Branch Name</p>
     </div>
-    <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80 text-center">
-        <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Degree Awarded - 2026</span>
+    <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+        <span class="inline-block px-3 py-1 rounded bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 text-xs font-mono font-bold">
+            3rd Year
+        </span>
+    </div>
+</div>
+```
+
+### ➕ Template B: Adding / Editing Faculty Members
+Copy and paste this card snippet inside the `faculty` grid under `<section id="team">`:
+
+```html
+<!-- Faculty Member Card -->
+<div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
+    <div>
+        <img src="images/team/faculty_photo.png" alt="Faculty Name" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-indigo-500/40 shadow-md mb-4">
+        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Faculty Name</h4>
+    </div>
+    <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+        <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Faculty Member</span>
     </div>
 </div>
 ```
@@ -258,27 +277,37 @@ bio: "Founded the SLIET Antriksha Vigyan Society, leading student innovation..."
 
 All research papers and publications are managed cleanly inside **`config.js`** under `window.CLUB_CONFIG.publications`.
 
-To add a new publication authored by **Dr. Ravi Kant Mishra** or society members:
-1. Open **`config.js`** in any text editor.
-2. Scroll to `publications: [ ... ]`.
-3. Copy and paste the block below into the list:
+### 🖼️ Journal Cover Images Folder
+All journal cover thumbnails are stored in **`images/publications/`**:
+- `images/publications/modern_physics_letters_a.png`
+- `images/publications/intl_journal_theoretical_physics.png`
+- `images/publications/romanian_journal_of_physics.png`
+- `images/publications/bulgarian_journal_of_physics.png`
+- `images/publications/journal_of_physics_conf.png`
+
+### ➕ How to Add a New Publication:
+1. Save the journal cover picture in **`images/publications/your_cover.png`**.
+2. Open **`config.js`** in any text editor.
+3. Scroll to `publications: [ ... ]`.
+4. Copy and paste the block below into the list:
 
 ```javascript
 {
-    id: "pub-4",
+    id: "pub-8",
     title: "Your Research Paper Title Here",
-    authors: ["Dr. Ravi Kant Mishra", "Co-Author Name"],
-    journal: "Journal Name or Conference (2024)",
-    year: "2024",
+    authors: ["Dr. Ravi Kant Mishra", "Rahul Sharma"],
+    journal: "Journal Name (2026)",
+    year: "2026",
     category: "cosmology", // Choose: 'cosmology', 'astrophysics', or 'spacetech'
+    coverImage: "images/publications/your_cover.png", // Journal cover image thumbnail
     doiUrl: "https://doi.org/10.xxxx/xxxx", // Link to full paper or DOI
-    pdfUrl: "https://rkmishra.com/", // Link to PDF or portfolio
+    pdfUrl: "https://rkmishra.com/publication", // Link to PDF or portfolio
     abstract: "A short 2-3 sentence summary of the paper research findings.",
     tags: ["Cosmology", "Dark Energy"]
 }
 ```
 
-4. Save **`config.js`** and refresh the website. The new paper will instantly appear on both the main website `#publications` section and `https://slietantrikshavigyansociety.vercel.app/publications` with search, filter, and 1-click citation copy buttons!
+5. Save **`config.js`** and refresh the website. The new paper will instantly appear on both the main website `#publications` section and `https://slietantrikshavigyansociety.vercel.app/publications` with side-by-side journal covers, small author profile avatars, search, and category filtering!
 
 ---
 

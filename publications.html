@@ -31,6 +31,11 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="manifest" href="manifest.json">
 
+    <!-- Immediate Anti-Flicker Light Theme Initialization -->
+    <script>
+        document.documentElement.classList.remove('dark');
+    </script>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -88,7 +93,7 @@
     <nav class="fixed top-0 left-0 w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
             <a href="index.html#home" class="flex items-center gap-3.5 group shrink-0">
-                <img src="images/logo.png" alt="SLIET Antriksha Vigyan Society Logo"
+                <img src="images/logo.png" alt="SLIET Antriksha Vigyan Society Logo" width="48" height="48" fetchpriority="high" decoding="async"
                     class="w-12 h-12 object-cover rounded-full shadow-md group-hover:scale-105 transition-transform ring-2 ring-indigo-500/30 dark:ring-sky-400/40">
                 <div>
                     <span class="font-extrabold text-xl sm:text-2xl tracking-widest block leading-none dark:text-white text-slate-900">SAVS</span>
@@ -115,10 +120,10 @@
                     <i id="theme-toggle-icon" class="fa-solid fa-sun text-amber-500 text-base"></i>
                 </button>
 
-                <button onclick="openJoinModal()"
-                    class="px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm hover:opacity-95 transition-all shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/40 hover:scale-[1.02]">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform" target="_blank" rel="noopener noreferrer"
+                    class="join-form-link px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm hover:opacity-95 transition-all shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/40 hover:scale-[1.02] flex items-center">
                     Join Us <i class="fa-solid fa-arrow-right-long ml-1.5 text-xs"></i>
-                </button>
+                </a>
             </div>
 
             <!-- Mobile Menu Toggle -->
@@ -142,9 +147,10 @@
             <a href="index.html#events" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Events</a>
             <a href="index.html#about" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">About</a>
             <a href="index.html#contact" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Contact</a>
-            <button onclick="openJoinModal()" class="w-full mt-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm shadow-md">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform" target="_blank" rel="noopener noreferrer"
+                class="join-form-link block text-center w-full mt-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm shadow-md">
                 Join Us
-            </button>
+            </a>
         </div>
     </nav>
 
@@ -229,18 +235,28 @@
                 <i class="fa-solid fa-xmark"></i>
             </button>
             <div class="w-16 h-16 mx-auto rounded-2xl bg-indigo-50 dark:bg-slate-800/90 border border-indigo-100 dark:border-slate-700 flex items-center justify-center mb-4 shadow-md">
-                <img src="images/google_forms.svg" alt="Google Forms Logo" class="w-10 h-10 object-contain">
+                <img src="images/google_forms.svg" alt="Google Forms Logo" width="40" height="40" loading="lazy" decoding="async" class="w-10 h-10 object-contain">
             </div>
             <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-2">Google Form Registration</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                 Click below to open the official SLIET Antriksha Vigyan Society Google Form in a new tab. Submit your student details and domain preferences directly.
             </p>
-            <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" onclick="closeJoinModal()"
-                class="inline-flex items-center justify-center gap-2.5 w-full py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 hover:scale-[1.02] transition-transform">
-                <img src="images/google_forms.svg" alt="Google Forms" class="w-5 h-5 object-contain">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform" target="_blank" rel="noopener noreferrer" onclick="closeJoinModal()"
+                class="join-form-link inline-flex items-center justify-center gap-2.5 w-full py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 hover:scale-[1.02] transition-transform">
+                <img src="images/google_forms.svg" alt="Google Forms" width="20" height="20" loading="lazy" decoding="async" class="w-5 h-5 object-contain">
                 <span>Proceed to Google Form</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
             </a>
+        </div>
+    </div>
+
+    <!-- Image Lightbox Modal -->
+    <div id="image-lightbox" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/90 backdrop-blur-md p-4 cursor-pointer opacity-0 pointer-events-none transition-opacity duration-200" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white/80 hover:text-white text-3xl font-bold focus:outline-none" onclick="closeLightbox()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-5xl max-h-[85vh] w-full flex items-center justify-center p-2" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[80vh] rounded-xl object-contain shadow-2xl border border-white/10 transform scale-95 transition-transform duration-200">
         </div>
     </div>
 

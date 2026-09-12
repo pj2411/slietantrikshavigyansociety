@@ -6,8 +6,8 @@
 
 window.CLUB_CONFIG = {
     // 1. Google Form Links (KEPT SEPARATE TO PREVENT CONFUSION)
-    joinUsFormUrl: "https://forms.google.com", // 🟢 1. Society Membership & Recruitment Google Form
-    eventFormUrl: "https://forms.google.com", // 🔵 2. Event Registration Google Form
+    joinUsFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform", // 🟢 1. Society Membership & Recruitment Google Form
+    eventFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform", // 🔵 2. Event Registration Google Form
 
     // 2. Official Contacts
     officialEmail: "antriksha@sliet.ac.in",    // Official Society Email
@@ -38,9 +38,10 @@ window.CLUB_CONFIG = {
             id: "pub-1",
             title: "Anisotropic cyclic cosmology in f(T) gravity: A Bianchi type-II framework for periodic big bang big crunch evolution",
             authors: ["Dr. Ravi Kant Mishra", "Rahul Sharma"],
-            journal: "Physics Letters A",
+            journal: "Modern Physics Letters A",
             year: "2026",
             category: "cosmology",
+            coverImage: "images/publications/modern_physics_letters_a.png",
             doiUrl: "https://rkmishra.com/publication",
             pdfUrl: "https://rkmishra.com/publication",
             abstract: "Investigating periodic Big Bang-Big Crunch cosmological evolution using Bianchi type-II metrics within the teleparallel gravity f(T) framework.",
@@ -50,9 +51,10 @@ window.CLUB_CONFIG = {
             id: "pub-2",
             title: "Beyond General Relativity: Comparative Analysis Between BDT & f(R,T) With NLDP",
             authors: ["Dr. Ravi Kant Mishra", "Rahul Sharma"],
-            journal: "The European Physical Journal Plus",
+            journal: "International Journal of Theoretical Physics",
             year: "2024",
             category: "cosmology",
+            coverImage: "images/publications/intl_journal_theoretical_physics.png",
             doiUrl: "https://rkmishra.com/publication",
             pdfUrl: "https://rkmishra.com/publication",
             abstract: "A comparative cosmological analysis between Brans-Dicke theory (BDT) and f(R,T) gravity formulated with non-linear deceleration parameters.",
@@ -62,9 +64,10 @@ window.CLUB_CONFIG = {
             id: "pub-3",
             title: "Numerical and statistical insights into f(R,T) cosmology: GRP, RK4, and MLE approaches",
             authors: ["Dr. Ravi Kant Mishra", "Navya Jain"],
-            journal: "Astrophysics and Space Science",
+            journal: "Romanian Journal of Physics",
             year: "2025",
             category: "astrophysics",
+            coverImage: "images/publications/romanian_journal_of_physics.png",
             doiUrl: "https://rkmishra.com/publication",
             pdfUrl: "https://rkmishra.com/publication",
             abstract: "Combining Runge-Kutta 4th order (RK4) numerical methods and Maximum Likelihood Estimation (MLE) with observational Hubble data to constrain f(R,T) cosmological models.",
@@ -74,9 +77,10 @@ window.CLUB_CONFIG = {
             id: "pub-4",
             title: "Analytical and Numerical Investigation of Cosmological Stability in Scalar-Tensor Gravity",
             authors: ["Dr. Ravi Kant Mishra", "Navya Jain"],
-            journal: "International Journal of Modern Physics D",
+            journal: "Bulgarian Journal of Physics",
             year: "2026",
             category: "cosmology",
+            coverImage: "images/publications/bulgarian_journal_of_physics.png",
             doiUrl: "https://rkmishra.com/publication",
             pdfUrl: "https://rkmishra.com/publication",
             abstract: "Perturbative stability analysis and dynamical system phase-space behavior in scalar-tensor gravitation.",
@@ -86,9 +90,10 @@ window.CLUB_CONFIG = {
             id: "pub-5",
             title: "Exploring Advanced Curvature and Linear Matter Coupling with Its Impact on the Expanding Universe",
             authors: ["Dr. Ravi Kant Mishra", "Rahul Sharma"],
-            journal: "International Journal of Geometrical Methods in Modern Physics",
+            journal: "Journal of Physics: Conference Series",
             year: "2025",
             category: "astrophysics",
+            coverImage: "images/publications/journal_of_physics_conf.png",
             doiUrl: "https://rkmishra.com/publication",
             pdfUrl: "https://rkmishra.com/publication",
             abstract: "Analyzing curvature-matter couplings in modified gravity theories and their geometrical effects on cosmic expansion acceleration.",
@@ -101,22 +106,11 @@ window.CLUB_CONFIG = {
             journal: "Modern Physics Letters A",
             year: "2026",
             category: "cosmology",
+            coverImage: "images/publications/modern_physics_letters_a.png",
             doiUrl: "https://rkmishra.com/publication",
             pdfUrl: "https://rkmishra.com/publication",
             abstract: "Formulating fractional deceleration parameterizations to model cosmic transition from decelerating to accelerating expansion regimes.",
             tags: ["Cosmology", "Deceleration Parameter", "SCI / Scopus / WoS (IF: 1.6)"]
-        },
-        {
-            id: "pub-7",
-            title: "Design & Telemetry Analysis for Student Space Experiments and Ionospheric Probe Payloads",
-            authors: ["Dr. Ravi Kant Mishra", "SAVS Tech Wing"],
-            journal: "SLIET Space Engineering Proceedings",
-            year: "2024",
-            category: "spacetech",
-            doiUrl: "https://rkmishra.com/publication",
-            pdfUrl: "https://rkmishra.com/publication",
-            abstract: "Experimental design, payload sensor calibration, and ground telemetry monitoring for student-led atmospheric probes and space technology projects.",
-            tags: ["Space Tech", "Telemetry", "CubeSat / Payloads"]
         }
     ]
 };

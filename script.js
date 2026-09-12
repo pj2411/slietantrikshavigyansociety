@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const revealElements = document.querySelectorAll('.reveal-on-scroll');
     if ('IntersectionObserver' in window && revealElements.length > 0) {
         const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -30px 0px'
+            threshold: 0.05,
+            rootMargin: '0px 0px -20px 0px'
         };
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
@@ -55,7 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, observerOptions);
 
-        revealElements.forEach(el => observer.observe(el));
+        revealElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                el.classList.add('is-visible');
+            } else {
+                observer.observe(el);
+            }
+        });
     } else {
         revealElements.forEach(el => el.classList.add('is-visible'));
     }
@@ -104,9 +111,21 @@ let meteors = [];
 
 function resizeCanvas() {
     if (!canvas) return;
+    const oldWidth = canvas.width;
+    const oldHeight = canvas.height;
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    initStars();
+
+    if (stars.length === 0) {
+        initStars();
+    } else if (oldWidth > 0 && oldHeight > 0) {
+        const scaleX = canvas.width / oldWidth;
+        const scaleY = canvas.height / oldHeight;
+        stars.forEach(s => {
+            s.x = (s.x * scaleX) % canvas.width;
+            s.y = (s.y * scaleY) % canvas.height;
+        });
+    }
 }
 
 function initStars() {
@@ -343,19 +362,21 @@ function switchEventTab(tab) {
     }
 }
 
-// Team Filter Tabs
+// Team Category Filter Controls
 function filterTeam(category) {
-    const cards = document.querySelectorAll('.team-card');
     const buttons = document.querySelectorAll('.team-filter-btn');
-
     buttons.forEach(btn => {
-        btn.className = "team-filter-btn px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all";
+        btn.classList.remove('active', 'bg-gradient-to-r', 'from-amber-400', 'via-yellow-400', 'to-amber-500', 'text-slate-950', 'font-extrabold', 'shadow-md');
+        btn.classList.add('text-slate-600', 'dark:text-slate-400', 'font-semibold');
     });
+
     const activeBtn = document.getElementById(`team-btn-${category}`);
     if (activeBtn) {
-        activeBtn.className = "team-filter-btn active px-4 py-2 rounded-lg text-xs font-extrabold bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 shadow-md transition-all";
+        activeBtn.classList.remove('text-slate-600', 'dark:text-slate-400', 'font-semibold');
+        activeBtn.classList.add('active', 'bg-gradient-to-r', 'from-amber-400', 'via-yellow-400', 'to-amber-500', 'text-slate-950', 'font-extrabold', 'shadow-md');
     }
 
+    const cards = document.querySelectorAll('.team-card');
     cards.forEach(card => {
         if (category === 'all' || card.classList.contains(category)) {
             card.classList.remove('hidden');
@@ -610,6 +631,31 @@ function handlePublicationsRouting() {
     }
 }
 
+// Mapping of known author and society names to their small profile/avatar images
+const AUTHOR_AVATARS = {
+    "Dr. Ravi Kant Mishra": "images/rk_mishra.png",
+    "Rahul Sharma": "images/team/rahul_sharma.png",
+    "Navya Jain": "images/team/navya_jain.png",
+    "Amritbir Singh": "images/team/amritbir_singh.png",
+    "Arunesh Pandey": "images/team/arunesh_pandey.png",
+    "Avtar Chand": "images/team/avtar_chand.png",
+    "Chanchal Chawla": "images/team/chanchal_chawla.png",
+    "Heena Dua": "images/team/heena_dua.png",
+    "SAVS Tech Wing": "images/logo.png",
+    "SLIET Space Team": "images/logo.png"
+};
+
+function getAuthorAvatar(authorName) {
+    if (!authorName) return null;
+    if (AUTHOR_AVATARS[authorName]) return AUTHOR_AVATARS[authorName];
+    for (const [key, val] of Object.entries(AUTHOR_AVATARS)) {
+        if (authorName.toLowerCase().includes(key.toLowerCase()) || key.toLowerCase().includes(authorName.toLowerCase())) {
+            return val;
+        }
+    }
+    return null;
+}
+
 function renderPublications(filterCategory = 'all', searchQuery = '') {
     const grid = document.getElementById('publications-grid');
     if (!grid) return;
@@ -648,49 +694,84 @@ function renderPublications(filterCategory = 'all', searchQuery = '') {
 
     grid.innerHTML = items.map(item => {
         const authorBadges = item.authors.map(author => {
-            if (author.includes("Dr. Ravi Kant Mishra")) {
-                return `<span class="px-2.5 py-0.5 rounded-md bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-sky-300 font-bold text-xs border border-indigo-200 dark:border-indigo-800 whitespace-nowrap"><i class="fa-solid fa-user-graduate mr-1 text-indigo-500"></i> ${author}</span>`;
+            const avatar = getAuthorAvatar(author);
+            const isLeadFaculty = author.includes("Dr. Ravi Kant Mishra");
+            
+            let avatarImg = '';
+            if (avatar) {
+                avatarImg = `<img src="${avatar}" alt="${author}" width="16" height="16" loading="lazy" decoding="async" class="w-4 h-4 rounded-full object-cover border border-slate-300 dark:border-slate-600 shadow-xs shrink-0 inline-block bg-slate-200 dark:bg-slate-700">`;
+            } else {
+                avatarImg = `<span class="w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-[9px] text-slate-600 dark:text-slate-300 font-bold shrink-0 inline-flex"><i class="fa-solid fa-user text-[8px]"></i></span>`;
             }
-            return `<span class="px-2.5 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-xs whitespace-nowrap">${author}</span>`;
+
+            if (isLeadFaculty) {
+                return `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-sky-300 font-bold text-xs border border-indigo-200 dark:border-indigo-800 whitespace-nowrap shadow-xs">
+                    ${avatarImg}
+                    <span>${author}</span>
+                </span>`;
+            }
+            return `<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-xs border border-slate-200 dark:border-slate-700 whitespace-nowrap shadow-xs">
+                ${avatarImg}
+                <span>${author}</span>
+            </span>`;
         }).join(" ");
 
         const tagBadges = (item.tags || []).map(tag => 
             `<span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-mono text-[11px]">#${tag}</span>`
         ).join(" ");
 
+        const coverHtml = item.coverImage ? `
+            <div class="shrink-0 w-24 sm:w-28 md:w-32 self-center sm:self-start group/cover relative rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700/80 bg-white/70 dark:bg-slate-900/70 cursor-pointer" onclick="openLightbox('${item.coverImage}')" title="Click to view full cover">
+                <img src="${item.coverImage}" alt="${item.journal} Cover" width="128" height="170" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" class="w-full h-auto max-h-40 sm:max-h-44 object-contain sm:object-cover bg-slate-50 dark:bg-slate-900 group-hover/cover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-indigo-950/40 opacity-0 group-hover/cover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
+                    <span class="px-2 py-0.5 rounded-md bg-black/70 text-white text-[10px] font-mono flex items-center gap-1 shadow-md">
+                        <i class="fa-solid fa-magnifying-glass-plus text-indigo-300"></i> Zoom
+                    </span>
+                </div>
+            </div>
+        ` : '';
+
         return `
-            <div class="glass-card rounded-2xl p-6 sm:p-8 hover:border-indigo-500/40 transition-all duration-300 group shadow-lg relative overflow-hidden">
-                <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
-                    <span class="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 text-xs font-mono font-bold uppercase tracking-wider">
-                        ${item.journal} (${item.year})
-                    </span>
-                    <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1">
-                        <i class="fa-solid fa-circle-check text-emerald-500 text-[9px]"></i> Peer-Reviewed
-                    </span>
-                </div>
+            <div class="glass-card rounded-2xl p-5 sm:p-7 hover:border-indigo-500/40 transition-all duration-300 group shadow-lg relative overflow-hidden flex flex-col sm:flex-row gap-5 items-start">
+                ${coverHtml}
+                <div class="flex-1 min-w-0">
+                    <div class="flex flex-wrap items-center justify-between gap-3 mb-2.5">
+                        <span class="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 text-xs font-mono font-bold uppercase tracking-wider">
+                            ${item.journal} (${item.year})
+                        </span>
+                        <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 text-[11px] font-semibold flex items-center gap-1">
+                            <i class="fa-solid fa-circle-check text-emerald-500 text-[9px]"></i> Peer-Reviewed
+                        </span>
+                    </div>
 
-                <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white leading-snug group-hover:text-indigo-600 dark:group-hover:text-sky-400 transition-colors mb-4">
-                    ${item.title}
-                </h3>
+                    <h3 class="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 dark:text-white leading-snug group-hover:text-indigo-600 dark:group-hover:text-sky-400 transition-colors mb-3">
+                        ${item.title}
+                    </h3>
 
-                <div class="flex flex-wrap items-center gap-2 mb-4">
-                    <span class="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 mr-1">AUTHORS:</span>
-                    ${authorBadges}
-                </div>
+                    <div class="flex flex-wrap items-center gap-2 mb-3.5">
+                        <span class="text-xs font-mono font-bold text-slate-500 dark:text-slate-400 mr-1">AUTHORS:</span>
+                        ${authorBadges}
+                    </div>
 
-                <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60 mb-5">
-                    <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
-                        ${item.abstract}
-                    </p>
-                </div>
+                    <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60 mb-4">
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
+                            ${item.abstract}
+                        </p>
+                    </div>
 
-                <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/60">
-                    <div class="flex flex-wrap items-center gap-1.5">
-                        ${tagBadges}
+                    <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/60">
+                        <div class="flex flex-wrap items-center gap-1.5">
+                            ${tagBadges}
+                        </div>
+                        ${item.doiUrl ? `
+                            <a href="${item.doiUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 text-indigo-700 dark:text-sky-300 text-xs font-bold transition-all border border-indigo-200/60 dark:border-indigo-800/60">
+                                <span>Official Link</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                            </a>
+                        ` : ''}
                     </div>
                 </div>
             </div>
-
         `;
     }).join('');
 }

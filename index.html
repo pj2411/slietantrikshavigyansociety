@@ -31,6 +31,11 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="manifest" href="manifest.json">
 
+    <!-- Immediate Anti-Flicker Light Theme Initialization -->
+    <script>
+        document.documentElement.classList.remove('dark');
+    </script>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -124,7 +129,7 @@
     <nav class="fixed top-0 left-0 w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
             <a href="#home" class="flex items-center gap-3.5 group shrink-0">
-                <img src="images/logo.png" alt="SLIET Antriksha Vigyan Society Logo"
+                <img src="images/logo.png" alt="SLIET Antriksha Vigyan Society Logo" width="48" height="48" fetchpriority="high" decoding="async"
                     class="w-12 h-12 object-cover rounded-full shadow-md group-hover:scale-105 transition-transform ring-2 ring-indigo-500/30 dark:ring-sky-400/40">
                 <div>
                     <span
@@ -157,10 +162,10 @@
                     <i id="theme-toggle-icon" class="fa-solid fa-sun text-amber-500 text-base"></i>
                 </button>
 
-                <button onclick="openJoinModal()"
-                    class="px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm hover:opacity-95 transition-all shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/40 hover:scale-[1.02]">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform" target="_blank" rel="noopener noreferrer"
+                    class="join-form-link px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm hover:opacity-95 transition-all shadow-md shadow-amber-500/25 hover:shadow-lg hover:shadow-amber-500/40 hover:scale-[1.02] flex items-center">
                     Join Us <i class="fa-solid fa-arrow-right-long ml-1.5 text-xs"></i>
-                </button>
+                </a>
             </div>
 
             <!-- Mobile Action & Menu Toggle -->
@@ -190,10 +195,10 @@
             <a href="#about" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">About</a>
             <a href="#contact"
                 class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Contact</a>
-            <button onclick="openJoinModal()"
-                class="w-full mt-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm shadow-md">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform" target="_blank" rel="noopener noreferrer"
+                class="join-form-link block text-center w-full mt-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm shadow-md">
                 Join Us
-            </button>
+            </a>
         </div>
     </nav>
 
@@ -207,7 +212,7 @@
             class="absolute bottom-20 right-12 w-96 h-96 rounded-full bg-orange-100/50 dark:bg-sky-500/20 blur-3xl animate-float-medium pointer-events-none">
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 reveal-on-scroll">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <div
                 class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full gradient-badge text-amber-800 dark:text-amber-300 text-xs font-mono font-semibold uppercase tracking-widest mb-6">
                 <span class="w-2 h-2 rounded-full bg-amber-600 dark:bg-amber-400 animate-ping"></span>
@@ -231,11 +236,11 @@
                     class="w-full sm:w-auto px-8 py-3.5 rounded-full glass-card border border-slate-300 dark:border-white/20 text-slate-800 dark:text-white font-semibold transition-all hover:bg-slate-100 dark:hover:bg-slate-800">
                     About Us
                 </a>
-                <button onclick="openJoinModal()"
-                    class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold transition-all shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-105">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform" target="_blank" rel="noopener noreferrer"
+                    class="join-form-link w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold transition-all shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 hover:scale-105 flex items-center justify-center gap-2">
                     <span>Join Our Community</span>
-                    <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                </button>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -346,7 +351,7 @@
                 </div>
                 <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-6">
                     <div class="flex items-center gap-5">
-                        <img src="images/rk_mishra.png" alt="Dr. Ravi Kant Mishra"
+                        <img src="images/rk_mishra.png" alt="Dr. Ravi Kant Mishra" width="112" height="112" fetchpriority="high" decoding="async"
                             class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover object-top shadow-xl border-2 border-indigo-500/30 shrink-0">
                         <div>
                             <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">Dr. Ravi Kant Mishra</h3>
@@ -663,8 +668,8 @@
                 <!-- Event Header & Branding -->
                 <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8 border-b border-slate-200 dark:border-slate-800 pb-6">
                     <!-- Event Poster -->
-                    <div class="w-full lg:w-1/4 max-w-[280px] shrink-0 rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 relative group cursor-pointer" onclick="openLightbox('images/events/national_space_day_2026/poster.jpg')">
-                        <img src="images/events/national_space_day_2026/poster.jpg" alt="National Space Day 2026 Poster" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="w-full lg:w-1/4 max-w-[280px] shrink-0 rounded-2xl overflow-hidden shadow-lg border border-slate-200 dark:border-slate-700 relative group cursor-pointer bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/poster.jpg')">
+                        <img src="images/events/national_space_day_2026/poster.jpg" alt="National Space Day 2026 Poster" width="280" height="380" loading="lazy" decoding="async" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </div>
                     
@@ -749,7 +754,7 @@
 
                             <ul class="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-mono">
                                 <li>👤 <strong>Participation:</strong> Individual</li>
-                                <li>🎯 <strong>Eligibility:</strong> Only for ICD Students</li>
+                                <li>🎯 <strong>Eligibility:</strong> Open to All SLIET Students</li>
                                 <li>⚡ <strong>Format:</strong> 1 Exciting Round</li>
                                 <li>🛰️ <strong>Topics:</strong> ISRO Missions, India's Space Achievements, Tech & Exploration</li>
                             </ul>
@@ -771,20 +776,20 @@
                     <i class="fa-solid fa-camera text-indigo-500"></i> Event Highlights
                 </h4>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative" onclick="openLightbox('images/events/national_space_day_2026/photo1.jpg')">
-                        <img src="images/events/national_space_day_2026/photo1.jpg" alt="Event Photo 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo1.jpg')">
+                        <img src="images/events/national_space_day_2026/photo1.jpg" alt="Event Photo 1" width="300" height="170" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative" onclick="openLightbox('images/events/national_space_day_2026/photo2.jpg')">
-                        <img src="images/events/national_space_day_2026/photo2.jpg" alt="Event Photo 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo2.jpg')">
+                        <img src="images/events/national_space_day_2026/photo2.jpg" alt="Event Photo 2" width="300" height="170" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative" onclick="openLightbox('images/events/national_space_day_2026/photo3.jpg')">
-                        <img src="images/events/national_space_day_2026/photo3.jpg" alt="Event Photo 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo3.jpg')">
+                        <img src="images/events/national_space_day_2026/photo3.jpg" alt="Event Photo 3" width="300" height="170" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative" onclick="openLightbox('images/events/national_space_day_2026/photo4.jpg')">
-                        <img src="images/events/national_space_day_2026/photo4.jpg" alt="Event Photo 4" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo4.jpg')">
+                        <img src="images/events/national_space_day_2026/photo4.jpg" alt="Event Photo 4" width="300" height="170" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
                 </div>
@@ -801,8 +806,8 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="past-events-grid">
                     <!-- Example of a past event card that was moved here -->
                     <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm opacity-90 hover:opacity-100 transition-opacity flex flex-col">
-                        <div class="w-full overflow-hidden rounded-xl mb-4 relative group border border-slate-100 dark:border-slate-800 cursor-pointer" onclick="openLightbox('images/events/past_events/event1.jpg')">
-                            <img src="images/events/past_events/event1.jpg" alt="Observational Astronomy Event" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="w-full overflow-hidden rounded-xl mb-4 relative group border border-slate-100 dark:border-slate-800 cursor-pointer bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/past_events/event1.jpg')">
+                            <img src="images/events/past_events/event1.jpg" alt="Observational Astronomy Event" width="400" height="225" loading="lazy" decoding="async" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-0 bg-indigo-500/5 mix-blend-overlay"></div>
                         </div>
                         <div class="flex justify-between items-start mb-4">
@@ -835,32 +840,41 @@
 
             <!-- Team Category Navigation Filters -->
             <div class="flex justify-center overflow-x-auto pb-2">
-                <div class="flex gap-2 p-1.5 glass-card rounded-xl">
+                <div class="flex flex-wrap justify-center items-center gap-2 p-1.5 glass-card rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-md">
                     <button onclick="filterTeam('all')" id="team-btn-all"
-                        class="team-filter-btn active px-4 py-2 rounded-lg text-xs font-extrabold bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 shadow-md transition-all">All Members</button>
+                        class="team-filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">All Members</button>
+                    <button onclick="filterTeam('founder')" id="team-btn-founder"
+                        class="team-filter-btn active px-5 py-2 rounded-xl text-xs sm:text-sm font-extrabold bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 shadow-md transition-all">Faculty Founder</button>
                     <button onclick="filterTeam('faculty')" id="team-btn-faculty"
-                        class="team-filter-btn px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">Faculty & Founder</button>
+                        class="team-filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">Faculty Members</button>
                     <button onclick="filterTeam('alumni')" id="team-btn-alumni"
-                        class="team-filter-btn px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">Distinguished Alumni Scholars</button>
-                    <button onclick="filterTeam('student')" id="team-btn-student"
-                        class="team-filter-btn px-4 py-2 rounded-lg text-xs font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all">Ph.D. Research Scholars</button>
+                        class="team-filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">Distinguished Alumni Scholars</button>
+                    <button onclick="filterTeam('phd')" id="team-btn-phd"
+                        class="team-filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">Ph.D. Research Scholars</button>
+                    <button onclick="filterTeam('students')" id="team-btn-students"
+                        class="team-filter-btn px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60 transition-all">Student Members</button>
                 </div>
             </div>
 
-            <!-- Tier 1: Faculty & Founder -->
-            <div class="team-card faculty space-y-4">
-                <div class="border-b border-slate-200 dark:border-slate-800 pb-3">
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Faculty & Founder</h3>
+            <!-- Tier 1: Faculty Founder (Active & Open by Default) -->
+            <div class="team-card founder space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-800 pb-3 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Faculty Founder</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Founding mentor leading research vision and space exploration at SLIET.</p>
+                    </div>
                 </div>
 
+                <!-- Founder Card -->
                 <div class="glass-card rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-2 border-indigo-500/30 shadow-xl reveal-on-scroll">
                     <div class="flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left">
-                        <img src="images/rk_mishra.png" alt="Prof. (Dr.) Ravi Kant Mishra"
+                        <img src="images/rk_mishra.png" alt="Prof. (Dr.) Ravi Kant Mishra" width="112" height="112" loading="lazy" decoding="async"
                             class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover object-top border-4 border-indigo-500/40 shadow-xl shrink-0">
                         <div>
+                            <span class="inline-block px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-sky-300 font-mono font-bold text-[11px] uppercase mb-1">Faculty Founder</span>
                             <h4 class="text-2xl font-extrabold text-slate-900 dark:text-white">Prof. (Dr.) Ravi Kant Mishra</h4>
-                            <p class="text-xs sm:text-sm text-indigo-600 dark:text-sky-400 font-mono font-bold uppercase mt-1">Founder & Chief Faculty Mentor</p>
-                            <p class="text-xs text-slate-600 dark:text-slate-300 font-semibold mt-1">Professor & Dean (Alumni and Industrial Relations), SLIET</p>
+                            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 font-semibold mt-1">Professor & Dean (Alumni and Industrial Relations), SLIET</p>
+                            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Department of Mathematics, SLIET</p>
                         </div>
                     </div>
                     <a href="https://rkmishra.com/" target="_blank" rel="noopener noreferrer"
@@ -871,17 +885,59 @@
                 </div>
             </div>
 
-            <!-- Tier 2: Distinguished Alumni & Ph.D. Scholars (Degree Awarded) -->
-            <div class="team-card alumni space-y-4">
+            <!-- Tier 2: Faculty Members (Hidden by Default) -->
+            <div class="team-card faculty space-y-6 hidden">
                 <div class="border-b border-slate-200 dark:border-slate-800 pb-3 flex items-center justify-between">
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Distinguished Alumni Scholars</h3>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Faculty Members</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Faculty members guiding society research and academic initiatives at SLIET.</p>
+                    </div>
+                </div>
+
+                <!-- Additional Faculty Members Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Faculty Member 1 -->
+                    <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
+                        <div>
+                            <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-indigo-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
+                                <i class="fa-solid fa-user-tie text-3xl"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Faculty Name</h4>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                            <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Faculty Member</span>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 2 -->
+                    <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
+                        <div>
+                            <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-indigo-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
+                                <i class="fa-solid fa-user-tie text-3xl"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Faculty Name</h4>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                            <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Faculty Member</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tier 3: Distinguished Alumni Scholars (Degree Awarded) -->
+            <div class="team-card alumni space-y-4 hidden">
+                <div class="border-b border-slate-200 dark:border-slate-800 pb-3 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Distinguished Alumni Scholars</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Ph.D. degree holders supervised by Dr. R.K. Mishra serving in academia & research.</p>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Scholar 1: Dr. Amritbir Singh -->
                     <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between">
                         <div class="text-center">
-                            <img src="images/team/amritbir_singh.png" alt="Dr. Amritbir Singh" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4">
+                            <img src="images/team/amritbir_singh.png" alt="Dr. Amritbir Singh" width="80" height="80" loading="lazy" decoding="async" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4 bg-slate-100 dark:bg-slate-800">
                             <h4 class="text-lg font-bold text-slate-900 dark:text-white">Dr. Amritbir Singh</h4>
                             <p class="text-xs text-purple-600 dark:text-purple-400 font-mono font-bold uppercase mt-1">Prof. (Maths) B.B.S.B E.C. Fatehgarh Sahib</p>
                         </div>
@@ -893,7 +949,7 @@
                     <!-- Scholar 2: Dr. Arunesh Kumar Pandey -->
                     <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between">
                         <div class="text-center">
-                            <img src="images/team/arunesh_pandey.png" alt="Dr. Arunesh Kumar Pandey" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4">
+                            <img src="images/team/arunesh_pandey.png" alt="Dr. Arunesh Kumar Pandey" width="80" height="80" loading="lazy" decoding="async" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4 bg-slate-100 dark:bg-slate-800">
                             <h4 class="text-lg font-bold text-slate-900 dark:text-white">Dr. Arunesh Kumar Pandey</h4>
                             <p class="text-xs text-purple-600 dark:text-purple-400 font-mono font-bold uppercase mt-1">AP (Mathematics) SDU-Lucknow</p>
                         </div>
@@ -905,7 +961,7 @@
                     <!-- Scholar 3: Dr. Chanchal Chawla -->
                     <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between">
                         <div class="text-center">
-                            <img src="images/team/chanchal_chawla.png" alt="Dr. Chanchal Chawla" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4">
+                            <img src="images/team/chanchal_chawla.png" alt="Dr. Chanchal Chawla" width="80" height="80" loading="lazy" decoding="async" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4 bg-slate-100 dark:bg-slate-800">
                             <h4 class="text-lg font-bold text-slate-900 dark:text-white">Dr. Chanchal Chawla</h4>
                             <p class="text-xs text-purple-600 dark:text-purple-400 font-mono font-bold uppercase mt-1">AP (Maths-DED) Punjabi University, Patiala</p>
                             <p class="text-xs text-purple-600 dark:text-purple-400 font-mono font-bold uppercase mt-1">(CSIR-JRF-SRF)</p>
@@ -918,7 +974,7 @@
                     <!-- Scholar 4: Dr. Avtar Chand -->
                     <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between">
                         <div class="text-center">
-                            <img src="images/team/avtar_chand.png" alt="Dr. Avtar Chand" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4">
+                            <img src="images/team/avtar_chand.png" alt="Dr. Avtar Chand" width="80" height="80" loading="lazy" decoding="async" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4 bg-slate-100 dark:bg-slate-800">
                             <h4 class="text-lg font-bold text-slate-900 dark:text-white">Dr. Avtar Chand</h4>
                             <p class="text-xs text-purple-600 dark:text-purple-400 font-mono font-bold uppercase mt-1">(CSIR-NET)</p>
                         </div>
@@ -930,7 +986,7 @@
                     <!-- Scholar 5: Dr. Heena Dua -->
                     <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between">
                         <div class="text-center">
-                            <img src="images/team/heena_dua.png" alt="Dr. Heena Dua" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4">
+                            <img src="images/team/heena_dua.png" alt="Dr. Heena Dua" width="80" height="80" loading="lazy" decoding="async" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4 bg-slate-100 dark:bg-slate-800">
                             <h4 class="text-lg font-bold text-slate-900 dark:text-white">Dr. Heena Dua</h4>
                             <p class="text-xs text-purple-600 dark:text-purple-400 font-mono font-bold uppercase mt-1">(GATE - UGC-NET-LS)</p>
                         </div>
@@ -941,17 +997,20 @@
                 </div>
             </div>
 
-            <!-- Tier 3: Ph.D. Research Scholars & Current Leads (Pursuing) -->
-            <div class="team-card student space-y-4">
+            <!-- Tier 4: Current Ph.D. Research Scholars -->
+            <div class="team-card phd space-y-4 hidden">
                 <div class="border-b border-slate-200 dark:border-slate-800 pb-3 flex items-center justify-between">
-                    <h3 class="text-xl font-bold text-slate-900 dark:text-white">Current Ph.D. Research Scholars</h3>
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Current Ph.D. Research Scholars</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Doctoral researchers advancing cosmological modeling and space sciences at SLIET.</p>
+                    </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Research Scholar 1: Mr. Rahul Sharma -->
                     <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
                         <div>
-                            <img src="images/team/rahul_sharma.png" alt="Mr. Rahul Sharma" class="w-24 h-24 mx-auto rounded-full object-cover border-2 border-sky-500/40 shadow-md mb-4">
+                            <img src="images/team/rahul_sharma.png" alt="Mr. Rahul Sharma" width="96" height="96" loading="lazy" decoding="async" class="w-24 h-24 mx-auto rounded-full object-cover border-2 border-sky-500/40 shadow-md mb-4 bg-slate-100 dark:bg-slate-800">
                             <h4 class="text-lg font-bold text-slate-900 dark:text-white">Mr. Rahul Sharma</h4>
                             <p class="text-xs text-sky-600 dark:text-sky-400 font-mono font-bold uppercase mt-1">Pursuing Ph.D. Degree</p>
                         </div>
@@ -965,7 +1024,7 @@
                     <!-- Research Scholar 2: Ms. Navya Jain -->
                     <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
                         <div>
-                            <img src="images/team/navya_jain.png" alt="Ms. Navya Jain" class="w-24 h-24 mx-auto rounded-full object-cover border-2 border-sky-500/40 shadow-md mb-4">
+                            <img src="images/team/navya_jain.png" alt="Ms. Navya Jain" width="96" height="96" loading="lazy" decoding="async" class="w-24 h-24 mx-auto rounded-full object-cover border-2 border-sky-500/40 shadow-md mb-4 bg-slate-100 dark:bg-slate-800">
                             <h4 class="text-lg font-bold text-slate-900 dark:text-white">Ms. Navya Jain</h4>
                             <p class="text-xs text-sky-600 dark:text-sky-400 font-mono font-bold uppercase mt-1">Pursuing Ph.D. Degree</p>
                         </div>
@@ -986,7 +1045,117 @@
                             <p class="text-xs text-sky-600 dark:text-sky-400 font-mono font-bold uppercase mt-1">Pursuing Ph.D.</p>
                         </div>
                         <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
-                            <!-- Placeholder for future qualifications like GATE/NET -->
+                            <span class="inline-block px-3 py-1 rounded bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 text-xs font-mono font-bold">
+                                Ph.D. Scholar
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tier 5: Current Student Members -->
+            <div class="team-card students space-y-6 hidden">
+                <div class="border-b border-slate-200 dark:border-slate-800 pb-3 flex items-center justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">Student Members</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Enthusiastic students driving projects, astronomy observations, and society activities.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Student Member 1 -->
+                    <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
+                        <div>
+                            <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-amber-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
+                                <i class="fa-solid fa-user-graduate text-3xl text-amber-500"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Mechanical Engineering</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                            <span class="inline-block px-3 py-1 rounded bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 text-xs font-mono font-bold">
+                                3rd Year
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Student Member 2 -->
+                    <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
+                        <div>
+                            <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-sky-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
+                                <i class="fa-solid fa-user-graduate text-3xl text-sky-500"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Electronics & Communication Engg</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                            <span class="inline-block px-3 py-1 rounded bg-sky-100 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 text-xs font-mono font-bold">
+                                3rd Year
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Student Member 3 -->
+                    <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
+                        <div>
+                            <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-indigo-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
+                                <i class="fa-solid fa-user-graduate text-3xl text-indigo-500"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Computer Science & Engg</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                            <span class="inline-block px-3 py-1 rounded bg-indigo-100 dark:bg-indigo-950/70 text-indigo-700 dark:text-sky-300 text-xs font-mono font-bold">
+                                2nd Year
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Student Member 4 -->
+                    <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
+                        <div>
+                            <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-rose-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
+                                <i class="fa-solid fa-user-graduate text-3xl text-rose-500"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Electrical Engineering</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                            <span class="inline-block px-3 py-1 rounded bg-rose-100 dark:bg-rose-950/70 text-rose-700 dark:text-rose-300 text-xs font-mono font-bold">
+                                2nd Year
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Student Member 5 -->
+                    <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
+                        <div>
+                            <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-purple-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
+                                <i class="fa-solid fa-user-graduate text-3xl text-purple-500"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Chemical Engineering</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                            <span class="inline-block px-3 py-1 rounded bg-purple-100 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 text-xs font-mono font-bold">
+                                1st Year
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Student Member 6 -->
+                    <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
+                        <div>
+                            <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-emerald-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
+                                <i class="fa-solid fa-user-graduate text-3xl text-emerald-500"></i>
+                            </div>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Civil Engineering</p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+                            <span class="inline-block px-3 py-1 rounded bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 text-xs font-mono font-bold">
+                                2nd Year
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -1109,7 +1278,7 @@
                         Complete your official student registration via our Google Form to apply for membership, select
                         your domain preferences, and receive event alerts.
                     </p>
-                    <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer"
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform" target="_blank" rel="noopener noreferrer"
                         class="join-form-link w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold hover:scale-105 transition-transform shadow-lg shadow-amber-500/25 flex items-center justify-center gap-2.5">
                         <img src="images/google_forms.svg" alt="Google Forms" class="w-5 h-5 object-contain">
                         <span>Fill Google Form Application</span>
@@ -1152,8 +1321,8 @@
                 student details and domain preferences directly.
             </p>
 
-            <a href="https://forms.google.com" target="_blank" rel="noopener noreferrer" onclick="closeJoinModal()"
-                class="inline-flex items-center justify-center gap-2.5 w-full py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 hover:scale-[1.02] transition-transform">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform" target="_blank" rel="noopener noreferrer" onclick="closeJoinModal()"
+                class="join-form-link inline-flex items-center justify-center gap-2.5 w-full py-3.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-500/25 hover:scale-[1.02] transition-transform">
                 <img src="images/google_forms.svg" alt="Google Forms" class="w-5 h-5 object-contain">
                 <span>Proceed to Google Form</span>
                 <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
@@ -1175,8 +1344,8 @@
             </span>
 
             <!-- Event Image Preview -->
-            <div class="w-full h-40 rounded-xl overflow-hidden mb-4 border border-slate-200 dark:border-slate-800">
-                <img src="images/events/national_space_day_2026/photo1.jpg" alt="National Space Day 2026" class="w-full h-full object-cover">
+            <div class="w-full h-40 rounded-xl overflow-hidden mb-4 border border-slate-200 dark:border-slate-800 bg-slate-100 dark:bg-slate-800">
+                <img src="images/events/national_space_day_2026/photo1.jpg" alt="National Space Day 2026" width="350" height="160" loading="lazy" decoding="async" class="w-full h-full object-cover">
             </div>
 
             <h3 class="text-xl font-black text-slate-900 dark:text-white mb-2">NATIONAL SPACE DAY 2026</h3>
