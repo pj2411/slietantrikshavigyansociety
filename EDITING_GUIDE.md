@@ -169,13 +169,13 @@ In **`index.html`**, under `<section id="team">`, team members are organized int
 
 ### 📸 Photos Folder
 All member & scholar photos are stored in the **`images/team/`** directory:
-- `images/team/amritbir_singh.png`
-- `images/team/arunesh_pandey.png`
-- `images/team/chanchal_chawla.png`
-- `images/team/avtar_chand.png`
-- `images/team/heena_dua.png`
-- `images/team/rahul_sharma.png`
-- `images/team/navya_jain.png`
+- `images/team/amritbir_singh.webp`
+- `images/team/arunesh_pandey.webp`
+- `images/team/chanchal_chawla.webp`
+- `images/team/avtar_chand.webp`
+- `images/team/heena_dua.webp`
+- `images/team/rahul_sharma.webp`
+- `images/team/navya_jain.webp`
 
 ### ➕ Template A: Adding / Editing Student Members
 Copy and paste this card snippet inside the `students` grid under `<section id="team">`:
@@ -279,14 +279,14 @@ All research papers and publications are managed cleanly inside **`config.js`** 
 
 ### 🖼️ Journal Cover Images Folder
 All journal cover thumbnails are stored in **`images/publications/`**:
-- `images/publications/modern_physics_letters_a.png`
-- `images/publications/intl_journal_theoretical_physics.png`
-- `images/publications/romanian_journal_of_physics.png`
-- `images/publications/bulgarian_journal_of_physics.png`
-- `images/publications/journal_of_physics_conf.png`
+- `images/publications/modern_physics_letters_a.webp`
+- `images/publications/intl_journal_theoretical_physics.webp`
+- `images/publications/romanian_journal_of_physics.webp`
+- `images/publications/bulgarian_journal_of_physics.webp`
+- `images/publications/journal_of_physics_conf.webp`
 
 ### ➕ How to Add a New Publication:
-1. Save the journal cover picture in **`images/publications/your_cover.png`**.
+1. Save the journal cover picture in **`images/publications/your_cover.webp`**.
 2. Open **`config.js`** in any text editor.
 3. Scroll to `publications: [ ... ]`.
 4. Copy and paste the block below into the list:
