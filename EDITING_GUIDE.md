@@ -203,11 +203,63 @@ Copy and paste this card snippet inside the `faculty` grid under `<section id="t
 <!-- Faculty Member Card -->
 <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
     <div>
-        <img src="images/team/faculty_photo.png" alt="Faculty Name" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-indigo-500/40 shadow-md mb-4">
+        <img src="images/team/faculty_photo.webp" alt="Faculty Name" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-indigo-500/40 shadow-md mb-4">
         <h4 class="text-lg font-bold text-slate-900 dark:text-white">Faculty Name</h4>
     </div>
     <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
         <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Faculty Member</span>
+    </div>
+</div>
+```
+
+### ➕ Template C: Adding / Editing Distinguished Alumni Scholars (Degree Awarded)
+Copy and paste this card snippet inside the `alumni` grid under `<section id="team">`:
+
+```html
+<!-- Alumni Scholar Card -->
+<div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between">
+    <div class="text-center">
+        <img src="images/team/scholar_photo.webp" alt="Dr. Scholar Name" class="w-20 h-20 mx-auto rounded-full object-cover border-2 border-purple-500/40 shadow-md mb-4 bg-slate-100 dark:bg-slate-800">
+        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Dr. Scholar Name</h4>
+        <p class="text-xs text-purple-600 dark:text-purple-400 font-mono font-bold uppercase mt-1">Designation & Institution</p>
+        <div class="mt-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800 text-left">
+            <p class="text-[10px] font-mono font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-graduation-cap"></i> Ph.D. Thesis:
+            </p>
+            <p class="text-xs text-slate-700 dark:text-slate-300 italic leading-relaxed">
+                "Ph.D. Thesis Title Here"
+            </p>
+        </div>
+    </div>
+    <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80 text-center">
+        <span class="text-xs font-mono text-slate-500 dark:text-slate-400">Degree Awarded - 2024</span>
+    </div>
+</div>
+```
+
+### ➕ Template D: Adding / Editing Current Ph.D. Research Scholars
+Copy and paste this card snippet inside the `phd` grid under `<section id="team">`:
+
+```html
+<!-- Current Ph.D. Scholar Card -->
+<div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
+    <div>
+        <img src="images/team/phd_photo.webp" alt="Scholar Name" class="w-24 h-24 mx-auto rounded-full object-cover border-2 border-sky-500/40 shadow-md mb-4 bg-slate-100 dark:bg-slate-800">
+        <h4 class="text-lg font-bold text-slate-900 dark:text-white">Mr./Ms. Scholar Name</h4>
+        <p class="text-xs text-sky-600 dark:text-sky-400 font-mono font-bold uppercase mt-1">Pursuing Ph.D. Degree</p>
+        <div class="mt-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200/70 dark:border-slate-800 text-left">
+            <p class="text-[10px] font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+                <i class="fa-solid fa-atom"></i> Research Area:
+            </p>
+            <p class="text-xs text-slate-700 dark:text-slate-300 italic leading-relaxed">
+                "Research Topic / Area Description Here"
+            </p>
+        </div>
+    </div>
+    <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
+        <span class="inline-block px-3 py-1 rounded bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 text-xs font-mono font-bold">
+            (GATE-Qualified / Ph.D. Scholar)
+        </span>
     </div>
 </div>
 ```
