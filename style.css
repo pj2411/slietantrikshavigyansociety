@@ -2,6 +2,12 @@
    SLIET Antriksha Vigyan Society - Custom Design System & Glassmorphism
    ==================================================================== */
 
+html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
 /* Base Academic Observatory & Starlight Theme */
 body {
     background-color: #f4f4f6;
@@ -18,7 +24,7 @@ body {
     background: #ffffff;
     border: 1px solid rgba(229, 231, 235, 0.95);
     box-shadow: 0 10px 30px -5px rgba(24, 24, 27, 0.05), 0 4px 6px -2px rgba(24, 24, 27, 0.02);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    transition: border-color 0.35s ease, box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .glass-card:hover {
     box-shadow: 0 20px 35px -10px rgba(217, 119, 6, 0.12), 0 10px 15px -3px rgba(24, 24, 27, 0.04);
@@ -130,31 +136,31 @@ img[loading="lazy"] {
    ==================================================================== */
 .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(20px) translateZ(0);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
 }
 .reveal-on-scroll.is-visible {
     opacity: 1;
-    transform: none !important;
+    transform: translateY(0) translateZ(0) !important;
     will-change: auto;
 }
 
-/* Fallback: if user prefers reduced motion or script is fast */
+/* Fallback: if user prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
     .reveal-on-scroll {
         opacity: 1;
-        transform: none;
-        transition: none;
+        transform: none !important;
+        transition: none !important;
     }
 }
 
 /* Stagger Delays for Grid Items */
-.delay-100 { transition-delay: 0.08s; }
-.delay-200 { transition-delay: 0.15s; }
-.delay-300 { transition-delay: 0.22s; }
-.delay-400 { transition-delay: 0.3s; }
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.18s; }
+.delay-300 { transition-delay: 0.26s; }
+.delay-400 { transition-delay: 0.34s; }
 
 /* Subtle Glow & Floating Keyframes */
 @keyframes floatSlow {

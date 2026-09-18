@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if ('IntersectionObserver' in window && revealElements.length > 0) {
         const observerOptions = {
             threshold: 0.05,
-            rootMargin: '0px 0px 60px 0px'
+            rootMargin: '0px 0px 80px 0px'
         };
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         revealElements.forEach(el => {
             const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight + 60 && rect.bottom > 0) {
+            if (rect.top < window.innerHeight + 80 && rect.bottom > 0) {
                 el.classList.add('is-visible');
             } else {
                 observer.observe(el);
