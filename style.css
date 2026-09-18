@@ -13,15 +13,12 @@ body {
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Glassmorphism Observatory Cards */
+/* Observatory & Content Cards */
 .glass-card {
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(229, 231, 235, 0.9);
+    background: #ffffff;
+    border: 1px solid rgba(229, 231, 235, 0.95);
     box-shadow: 0 10px 30px -5px rgba(24, 24, 27, 0.05), 0 4px 6px -2px rgba(24, 24, 27, 0.02);
     transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-    isolation: isolate;
 }
 .glass-card:hover {
     box-shadow: 0 20px 35px -10px rgba(217, 119, 6, 0.12), 0 10px 15px -3px rgba(24, 24, 27, 0.04);
@@ -91,7 +88,7 @@ html.dark body {
     color: #f1f5f9;
 }
 html.dark .glass-card {
-    background: rgba(15, 20, 48, 0.92);
+    background: #0f1430;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
