@@ -234,7 +234,7 @@ function animateStars() {
 }
 
 if (canvas) {
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize', resizeCanvas, { passive: true });
     resizeCanvas();
     animateStars();
 }
@@ -633,16 +633,16 @@ function handlePublicationsRouting() {
 
 // Mapping of known author and society names to their small profile/avatar images
 const AUTHOR_AVATARS = {
-    "Dr. Ravi Kant Mishra": "images/rk_mishra.png",
-    "Rahul Sharma": "images/team/rahul_sharma.png",
-    "Navya Jain": "images/team/navya_jain.png",
-    "Amritbir Singh": "images/team/amritbir_singh.png",
-    "Arunesh Pandey": "images/team/arunesh_pandey.png",
-    "Avtar Chand": "images/team/avtar_chand.png",
-    "Chanchal Chawla": "images/team/chanchal_chawla.png",
-    "Heena Dua": "images/team/heena_dua.png",
-    "SAVS Tech Wing": "images/logo.png",
-    "SLIET Space Team": "images/logo.png"
+    "Dr. Ravi Kant Mishra": "images/rk_mishra.webp",
+    "Rahul Sharma": "images/team/rahul_sharma.webp",
+    "Navya Jain": "images/team/navya_jain.webp",
+    "Amritbir Singh": "images/team/amritbir_singh.webp",
+    "Arunesh Pandey": "images/team/arunesh_pandey.webp",
+    "Avtar Chand": "images/team/avtar_chand.webp",
+    "Chanchal Chawla": "images/team/chanchal_chawla.webp",
+    "Heena Dua": "images/team/heena_dua.webp",
+    "SAVS Tech Wing": "images/logo.webp",
+    "SLIET Space Team": "images/logo.webp"
 };
 
 function getAuthorAvatar(authorName) {
@@ -721,8 +721,8 @@ function renderPublications(filterCategory = 'all', searchQuery = '') {
         ).join(" ");
 
         const coverHtml = item.coverImage ? `
-            <div class="shrink-0 w-24 sm:w-28 md:w-32 self-center sm:self-start group/cover relative rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700/80 bg-white/70 dark:bg-slate-900/70 cursor-pointer" onclick="openLightbox('${item.coverImage}')" title="Click to view full cover">
-                <img src="${item.coverImage}" alt="${item.journal} Cover" width="128" height="170" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" class="w-full h-auto max-h-40 sm:max-h-44 object-contain sm:object-cover bg-slate-50 dark:bg-slate-900 group-hover/cover:scale-105 transition-transform duration-500">
+            <div class="shrink-0 w-24 sm:w-28 md:w-32 aspect-[3/4] self-center sm:self-start group/cover relative rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700/80 bg-slate-100 dark:bg-slate-800 cursor-pointer" onclick="openLightbox('${item.coverImage}')" title="Click to view full cover">
+                <img src="${item.coverImage}" alt="${item.journal} Cover" width="128" height="170" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" class="w-full h-full object-cover bg-slate-50 dark:bg-slate-900 group-hover/cover:scale-105 transition-transform duration-500">
                 <div class="absolute inset-0 bg-indigo-950/40 opacity-0 group-hover/cover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
                     <span class="px-2 py-0.5 rounded-md bg-black/70 text-white text-[10px] font-mono flex items-center gap-1 shadow-md">
                         <i class="fa-solid fa-magnifying-glass-plus text-indigo-300"></i> Zoom

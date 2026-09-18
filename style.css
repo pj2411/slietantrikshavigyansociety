@@ -123,6 +123,11 @@ img {
     display: block;
 }
 
+/* Ensure smooth transitions without visual pop-in */
+img[loading="lazy"] {
+    transition: opacity 0.25s ease-in-out;
+}
+
 /* ====================================================================
    Dynamic Scroll Reveal & Micro-Animations
    ==================================================================== */
