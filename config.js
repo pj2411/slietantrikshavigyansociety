@@ -32,85 +32,72 @@ window.CLUB_CONFIG = {
         bio: "Dr. Ravi Kant Mishra is a Professor and Dean at SLIET Longowal with 28+ years of leadership in Cosmology, Astrophysics, and Space Science, known for his extensive research in modified gravity theories and cosmological modeling. As the founder of the SLIET Antriksha Vigyan Society, he mentors student-led space research, while his academic footprint spans invited lectures at premier astrophysics forums across the USA and Europe, service as former Registrar of NIT Puducherry, and membership on Faculty Selection Boards across multiple NITs."
     },
 
-    // 5. Research & Publications Data (Authored exclusively by Prof. Dr. Ravi Kant Mishra)
+    // 5. Research & Publications Data (Authored exclusively by Prof. Dr. Ravi Kant Mishra & Research Scholars)
     publications: [
         {
             id: "pub-1",
-            title: "Anisotropic cyclic cosmology in f(T) gravity: A Bianchi type-II framework for periodic big bang big crunch evolution",
+            title: "Beyond General Relativity: Comparative Analysis Between BDT & f(R,T) With NLDP",
             authors: ["Dr. Ravi Kant Mishra", "Rahul Sharma"],
-            journal: "Modern Physics Letters A",
-            year: "2026",
+            journal: "European Physical Journal Plus",
+            year: "2024",
             category: "cosmology",
-            coverImage: "images/publications/modern_physics_letters_a.webp",
-            doiUrl: "https://rkmishra.com/publication",
-            pdfUrl: "https://rkmishra.com/publication",
-            abstract: "Investigating periodic Big Bang-Big Crunch cosmological evolution using Bianchi type-II metrics within the teleparallel gravity f(T) framework.",
-            tags: ["Cosmology", "f(T) Gravity", "SCI / Scopus / WoS (IF: 2.6)"]
+            coverImage: "images/publications/epj_plus.webp",
+            doiUrl: "https://link.springer.com/article/10.1140/epjp/s13360-024-05294-w",
+            pdfUrl: "https://link.springer.com/article/10.1140/epjp/s13360-024-05294-w",
+            abstract: "A comparative cosmological analysis between Brans-Dicke theory (BDT) and f(R,T) gravity formulated with non-linear deceleration parameters.",
+            tags: []
         },
         {
             id: "pub-2",
-            title: "Beyond General Relativity: Comparative Analysis Between BDT & f(R,T) With NLDP",
+            title: "Anisotropic cyclic cosmology in f(T) gravity: A Bianchi type-II framework for periodic big bang big crunch evolution",
             authors: ["Dr. Ravi Kant Mishra", "Rahul Sharma"],
-            journal: "International Journal of Theoretical Physics",
-            year: "2024",
+            journal: "Physics Letters A",
+            year: "2026",
             category: "cosmology",
-            coverImage: "images/publications/intl_journal_theoretical_physics.webp",
-            doiUrl: "https://rkmishra.com/publication",
-            pdfUrl: "https://rkmishra.com/publication",
-            abstract: "A comparative cosmological analysis between Brans-Dicke theory (BDT) and f(R,T) gravity formulated with non-linear deceleration parameters.",
-            tags: ["Cosmology", "Brans-Dicke", "SCI / Scopus / WoS (IF: 3.4)"]
+            coverImage: "images/publications/physics_letters_a.webp",
+            doiUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0375960126003579",
+            pdfUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0375960126003579",
+            abstract: "Investigating periodic Big Bang-Big Crunch cosmological evolution using Bianchi type-II metrics within the teleparallel gravity f(T) framework.",
+            tags: []
         },
         {
             id: "pub-3",
             title: "Numerical and statistical insights into f(R,T) cosmology: GRP, RK4, and MLE approaches",
             authors: ["Dr. Ravi Kant Mishra", "Navya Jain"],
-            journal: "Romanian Journal of Physics",
+            journal: "Astrophysics and Space Science",
             year: "2025",
             category: "astrophysics",
-            coverImage: "images/publications/romanian_journal_of_physics.webp",
-            doiUrl: "https://rkmishra.com/publication",
-            pdfUrl: "https://rkmishra.com/publication",
+            coverImage: "images/publications/astrophysics_space_science.webp",
+            doiUrl: "https://link.springer.com/article/10.1007/s10509-025-04480-1",
+            pdfUrl: "https://link.springer.com/article/10.1007/s10509-025-04480-1",
             abstract: "Combining Runge-Kutta 4th order (RK4) numerical methods and Maximum Likelihood Estimation (MLE) with observational Hubble data to constrain f(R,T) cosmological models.",
-            tags: ["Astrophysics", "Numerical Methods", "SCI / Scopus / WoS (IF: 1.5)"]
+            tags: []
         },
         {
             id: "pub-4",
             title: "Analytical and Numerical Investigation of Cosmological Stability in Scalar-Tensor Gravity",
             authors: ["Dr. Ravi Kant Mishra", "Navya Jain"],
-            journal: "Bulgarian Journal of Physics",
+            journal: "International Journal of Modern Physics D",
             year: "2026",
             category: "cosmology",
-            coverImage: "images/publications/bulgarian_journal_of_physics.webp",
-            doiUrl: "https://rkmishra.com/publication",
-            pdfUrl: "https://rkmishra.com/publication",
+            coverImage: "images/publications/intl_journal_modern_physics_d.webp",
+            doiUrl: "https://www.worldscientific.com/doi/10.1142/S0218271826500082",
+            pdfUrl: "https://www.worldscientific.com/doi/10.1142/S0218271826500082",
             abstract: "Perturbative stability analysis and dynamical system phase-space behavior in scalar-tensor gravitation.",
-            tags: ["Cosmology", "Scalar-Tensor", "SCI / Scopus / WoS (IF: 2.1)"]
+            tags: []
         },
         {
             id: "pub-5",
-            title: "Exploring Advanced Curvature and Linear Matter Coupling with Its Impact on the Expanding Universe",
-            authors: ["Dr. Ravi Kant Mishra", "Rahul Sharma"],
-            journal: "Journal of Physics: Conference Series",
-            year: "2025",
-            category: "astrophysics",
-            coverImage: "images/publications/journal_of_physics_conf.webp",
-            doiUrl: "https://rkmishra.com/publication",
-            pdfUrl: "https://rkmishra.com/publication",
-            abstract: "Analyzing curvature-matter couplings in modified gravity theories and their geometrical effects on cosmic expansion acceleration.",
-            tags: ["Astrophysics", "Curvature Coupling", "SCI / Scopus / WoS (IF: 2.2)"]
-        },
-        {
-            id: "pub-6",
             title: "Generalized fractional deceleration as a tool to decode the universe's expansion",
             authors: ["Dr. Ravi Kant Mishra", "Priya Awasthi", "Rahul Sharma"],
             journal: "Modern Physics Letters A",
             year: "2026",
             category: "cosmology",
-            coverImage: "images/publications/modern_physics_letters_a.webp",
-            doiUrl: "https://rkmishra.com/publication",
-            pdfUrl: "https://rkmishra.com/publication",
+            coverImage: "images/publications/modern_physics_letters_a_cover.webp",
+            doiUrl: "https://www.worldscientific.com/doi/abs/10.1142/S0217732326500240?download=true&srsltid=AU7gw4UImUdi4LNx3PLpuURn7jGTvdxO8GScQoY9UHq2BrdsuFsgZQxJ&journalCode=mpla",
+            pdfUrl: "https://www.worldscientific.com/doi/abs/10.1142/S0217732326500240?download=true&srsltid=AU7gw4UImUdi4LNx3PLpuURn7jGTvdxO8GScQoY9UHq2BrdsuFsgZQxJ&journalCode=mpla",
             abstract: "Formulating fractional deceleration parameterizations to model cosmic transition from decelerating to accelerating expansion regimes.",
-            tags: ["Cosmology", "Deceleration Parameter", "SCI / Scopus / WoS (IF: 1.6)"]
+            tags: []
         }
     ]
 };

@@ -717,13 +717,23 @@ function renderPublications(filterCategory = 'all', searchQuery = '') {
             `<span class="px-2 py-0.5 rounded bg-slate-200/60 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400 font-mono text-[11px]">#${tag}</span>`
         ).join(" ");
 
-        const coverHtml = item.coverImage ? `
+        const targetUrl = item.doiUrl || item.pdfUrl;
+        const coverHtml = item.coverImage ? (
+            targetUrl ? `
+            <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="shrink-0 w-24 sm:w-28 md:w-32 aspect-[3/4] self-center sm:self-start group/cover relative rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700/80 bg-slate-100 dark:bg-slate-800 block" title="Read Article on ${item.journal}">
+                <img src="${item.coverImage}" alt="${item.journal} Cover" width="128" height="170" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" class="w-full h-full object-cover bg-slate-50 dark:bg-slate-900 group-hover/cover:scale-105 transition-transform duration-500">
+            </a>
+        ` : `
             <div class="shrink-0 w-24 sm:w-28 md:w-32 aspect-[3/4] self-center sm:self-start group/cover relative rounded-xl overflow-hidden shadow-md border border-slate-200 dark:border-slate-700/80 bg-slate-100 dark:bg-slate-800 cursor-pointer" onclick="openLightbox('${item.coverImage}')" title="Click to view full cover">
                 <img src="${item.coverImage}" alt="${item.journal} Cover" width="128" height="170" loading="lazy" decoding="async" onerror="this.parentElement.style.display='none'" class="w-full h-full object-cover bg-slate-50 dark:bg-slate-900 group-hover/cover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-indigo-950/40 opacity-0 group-hover/cover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[1px]">
-                    <span class="px-2 py-0.5 rounded-md bg-black/70 text-white text-[10px] font-mono flex items-center gap-1 shadow-md">
-                        <i class="fa-solid fa-magnifying-glass-plus text-indigo-300"></i> Zoom
-                    </span>
+            </div>
+        `
+        ) : '';
+
+        const tagsHtml = (item.tags && item.tags.length > 0) ? `
+            <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/60">
+                <div class="flex flex-wrap items-center gap-1.5">
+                    ${tagBadges}
                 </div>
             </div>
         ` : '';
@@ -750,23 +760,13 @@ function renderPublications(filterCategory = 'all', searchQuery = '') {
                         ${authorBadges}
                     </div>
 
-                    <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60 mb-4">
+                    <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60 ${tagsHtml ? 'mb-4' : ''}">
                         <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
                             ${item.abstract}
                         </p>
                     </div>
 
-                    <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/60">
-                        <div class="flex flex-wrap items-center gap-1.5">
-                            ${tagBadges}
-                        </div>
-                        ${item.doiUrl ? `
-                            <a href="${item.doiUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-50 dark:bg-indigo-950/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 text-indigo-700 dark:text-sky-300 text-xs font-bold transition-all border border-indigo-200/60 dark:border-indigo-800/60">
-                                <span>Official Link</span>
-                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                            </a>
-                        ` : ''}
-                    </div>
+                    ${tagsHtml}
                 </div>
             </div>
         `;
