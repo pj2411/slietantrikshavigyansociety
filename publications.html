@@ -109,8 +109,8 @@
                 <a href="index.html#home" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Home</a>
                 <a href="index.html#sky-watch" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors flex items-center gap-1.5"><i class="fa-solid fa-moon text-xs text-amber-600 dark:text-sky-400"></i> Sky Watch</a>
                 <a href="publications.html" class="text-indigo-600 dark:text-sky-400 transition-colors">Publications</a>
-                <!-- <a href="index.html#domains" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Domains</a> -->
                 <a href="index.html#events" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Events</a>
+                <a href="index.html#team" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Team</a>
                 <a href="index.html#about" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">About</a>
                 <a href="index.html#contact" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Contact</a>
             </div>
@@ -146,8 +146,8 @@
             <a href="index.html#home" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Home</a>
             <a href="index.html#sky-watch" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Sky Watch</a>
             <a href="publications.html" class="block text-indigo-600 dark:text-sky-400 transition-colors py-1">Publications</a>
-            <!-- <a href="index.html#domains" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Domains</a> -->
             <a href="index.html#events" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Events</a>
+            <a href="index.html#team" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Team</a>
             <a href="index.html#about" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">About</a>
             <a href="index.html#contact" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Contact</a>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform" target="_blank" rel="noopener noreferrer"
@@ -172,6 +172,27 @@
                 </p>
             </div>
 
+            <!-- Search Bar & Topic Category Filters -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 max-w-4xl mx-auto">
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap items-center gap-2">
+                    <button onclick="filterPublications('all')" id="pub-filter-all" class="pub-filter-btn active px-4 py-2 rounded-xl text-xs font-bold transition-all bg-indigo-600 text-white shadow-md">
+                        All Topics
+                    </button>
+                    <button onclick="filterPublications('cosmology')" id="pub-filter-cosmology" class="pub-filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+                        Cosmology
+                    </button>
+                    <button onclick="filterPublications('astrophysics')" id="pub-filter-astrophysics" class="pub-filter-btn px-4 py-2 rounded-xl text-xs font-semibold transition-all bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700">
+                        Astrophysics
+                    </button>
+                </div>
+
+                <!-- Search Input -->
+                <div class="relative w-full sm:w-72">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input type="text" id="pub-search-input" oninput="searchPublications()" placeholder="Search title, author, journal..." class="w-full pl-9 pr-4 py-2 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 shadow-sm transition-all">
+                </div>
+            </div>
 
             <!-- Official Faculty Portal Redirect Banner -->
             <div class="glass-card rounded-2xl p-4 sm:p-5 border-l-4 border-amber-500 flex flex-col sm:flex-row items-center justify-between gap-4 bg-gradient-to-r from-amber-500/10 via-indigo-500/5 to-transparent">

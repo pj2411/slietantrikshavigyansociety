@@ -633,6 +633,10 @@ const AUTHOR_AVATARS = {
     "Dr. Ravi Kant Mishra": "images/rk_mishra.webp",
     "Rahul Sharma": "images/team/rahul_sharma.webp",
     "Navya Jain": "images/team/navya_jain.webp",
+    "Priya Awasthi": "images/team/priya_awasthi.webp",
+    "Neeraj Kumar": "images/team/neeraj.webp",
+    "Sandhya": "images/team/sandhya.webp",
+    "Kuldeep": "images/team/kuldeep.webp",
     "Amritbir Singh": "images/team/amritbir_singh.webp",
     "Arunesh Pandey": "images/team/arunesh_pandey.webp",
     "Avtar Chand": "images/team/avtar_chand.webp",
@@ -730,13 +734,23 @@ function renderPublications(filterCategory = 'all', searchQuery = '') {
         `
         ) : '';
 
-        const tagsHtml = (item.tags && item.tags.length > 0) ? `
-            <div class="flex flex-wrap items-center justify-between gap-4 pt-3 border-t border-slate-200/60 dark:border-slate-800/60">
+        const actionBarHtml = `
+            <div class="flex flex-wrap items-center justify-between gap-3 pt-3.5 mt-3 border-t border-slate-200/60 dark:border-slate-800/60">
                 <div class="flex flex-wrap items-center gap-1.5">
                     ${tagBadges}
                 </div>
+                <div class="flex items-center gap-2 ml-auto">
+                    <button onclick="copyCitation('${item.id}')" class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-xs transition-colors flex items-center gap-1.5 border border-slate-200 dark:border-slate-700">
+                        <i class="fa-regular fa-copy text-indigo-500 dark:text-sky-400"></i> Copy Citation
+                    </button>
+                    ${targetUrl ? `
+                    <a href="${targetUrl}" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-indigo-600 dark:bg-sky-500 hover:bg-indigo-700 dark:hover:bg-sky-600 text-white font-bold text-xs transition-colors flex items-center gap-1.5 shadow-sm">
+                        <span>Read Paper</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                    ` : ''}
+                </div>
             </div>
-        ` : '';
+        `;
 
         return `
             <div class="glass-card rounded-2xl p-5 sm:p-7 hover:border-indigo-500/40 transition-all duration-300 group shadow-lg relative overflow-hidden flex flex-col sm:flex-row gap-5 items-start">
@@ -760,13 +774,13 @@ function renderPublications(filterCategory = 'all', searchQuery = '') {
                         ${authorBadges}
                     </div>
 
-                    <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60 ${tagsHtml ? 'mb-4' : ''}">
+                    <div class="p-4 rounded-xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800/60 mb-2">
                         <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-sans">
                             ${item.abstract}
                         </p>
                     </div>
 
-                    ${tagsHtml}
+                    ${actionBarHtml}
                 </div>
             </div>
         `;
@@ -832,7 +846,7 @@ function showToast(message) {
 
 // Announcement Popup Logic
 function initEventPopup() {
-    const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname === '';
+    const isHomePage = window.location.pathname === '/' || window.location.pathname.endsWith('/index.html') || window.location.pathname.endsWith('/') || window.location.pathname === '';
     const hasShown = sessionStorage.getItem('eventPopupShown');
     
     if (isHomePage && !hasShown) {

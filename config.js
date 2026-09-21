@@ -28,7 +28,7 @@ window.CLUB_CONFIG = {
         name: "Dr. Ravi Kant Mishra",
         role: "Faculty Head & Society Mentor",
         designation: "Professor & Dean (Alumni and Industrial Relations)",
-        photoPath: "rk_mishra.webp",
+        photoPath: "images/rk_mishra.webp",
         bio: "Dr. Ravi Kant Mishra is a Professor and Dean at SLIET Longowal with 28+ years of leadership in Cosmology, Astrophysics, and Space Science, known for his extensive research in modified gravity theories and cosmological modeling. As the founder of the SLIET Antriksha Vigyan Society, he mentors student-led space research, while his academic footprint spans invited lectures at premier astrophysics forums across the USA and Europe, service as former Registrar of NIT Puducherry, and membership on Faculty Selection Boards across multiple NITs."
     },
 
@@ -45,7 +45,7 @@ window.CLUB_CONFIG = {
             doiUrl: "https://link.springer.com/article/10.1140/epjp/s13360-024-05294-w",
             pdfUrl: "https://link.springer.com/article/10.1140/epjp/s13360-024-05294-w",
             abstract: "A comparative cosmological analysis between Brans-Dicke theory (BDT) and f(R,T) gravity formulated with non-linear deceleration parameters.",
-            tags: []
+            tags: ["Cosmology", "BransDicke", "fRTGravity"]
         },
         {
             id: "pub-2",
@@ -58,7 +58,7 @@ window.CLUB_CONFIG = {
             doiUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0375960126003579",
             pdfUrl: "https://www.sciencedirect.com/science/article/abs/pii/S0375960126003579",
             abstract: "Investigating periodic Big Bang-Big Crunch cosmological evolution using Bianchi type-II metrics within the teleparallel gravity f(T) framework.",
-            tags: []
+            tags: ["fTGravity", "BianchiII", "BigCrunch"]
         },
         {
             id: "pub-3",
@@ -71,7 +71,7 @@ window.CLUB_CONFIG = {
             doiUrl: "https://link.springer.com/article/10.1007/s10509-025-04480-1",
             pdfUrl: "https://link.springer.com/article/10.1007/s10509-025-04480-1",
             abstract: "Combining Runge-Kutta 4th order (RK4) numerical methods and Maximum Likelihood Estimation (MLE) with observational Hubble data to constrain f(R,T) cosmological models.",
-            tags: []
+            tags: ["Astrophysics", "RK4", "MLE"]
         },
         {
             id: "pub-4",
@@ -84,7 +84,7 @@ window.CLUB_CONFIG = {
             doiUrl: "https://www.worldscientific.com/doi/10.1142/S0218271826500082",
             pdfUrl: "https://www.worldscientific.com/doi/10.1142/S0218271826500082",
             abstract: "Perturbative stability analysis and dynamical system phase-space behavior in scalar-tensor gravitation.",
-            tags: []
+            tags: ["ScalarTensor", "StabilityAnalysis"]
         },
         {
             id: "pub-5",
@@ -97,7 +97,7 @@ window.CLUB_CONFIG = {
             doiUrl: "https://www.worldscientific.com/doi/abs/10.1142/S0217732326500240?download=true&srsltid=AU7gw4UImUdi4LNx3PLpuURn7jGTvdxO8GScQoY9UHq2BrdsuFsgZQxJ&journalCode=mpla",
             pdfUrl: "https://www.worldscientific.com/doi/abs/10.1142/S0217732326500240?download=true&srsltid=AU7gw4UImUdi4LNx3PLpuURn7jGTvdxO8GScQoY9UHq2BrdsuFsgZQxJ&journalCode=mpla",
             abstract: "Formulating fractional deceleration parameterizations to model cosmic transition from decelerating to accelerating expansion regimes.",
-            tags: []
+            tags: ["CosmicExpansion", "FractionalDeceleration"]
         }
     ]
 };
