@@ -6,8 +6,8 @@
 
 window.CLUB_CONFIG = {
     // 1. Google Form Links (KEPT SEPARATE TO PREVENT CONFUSION)
-    joinUsFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform", // 🟢 1. Society Membership & Recruitment Google Form
-    eventFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfj3bD3eaPQhxc_ZZ45Zcu8hq5t4m_zeN0X_cARRy2EM5NjIQ/viewform", // 🔵 2. Event Registration Google Form
+    joinUsFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfLmYrQt1uC_vdSgMGCzhG69OMVua04EKSw8eMSTMLgTGDzFQ/viewform?usp=publish-editor", // 🟢 1. Society Membership & Recruitment Google Form
+    eventFormUrl: "https://docs.google.com/forms/d/e/1FAIpQLSfLmYrQt1uC_vdSgMGCzhG69OMVua04EKSw8eMSTMLgTGDzFQ/viewform?usp=publish-editor", // 🔵 2. Event Registration Google Form
 
     // 2. Official Contacts
     officialEmail: "antriksha@sliet.ac.in",    // Official Society Email
