@@ -85,4 +85,4 @@ graph LR
 
 ---
 
-✨ *Maintained by the SLIET Antriksha Vigyan Society Tech Team.*
+✨ *Maintained by priyanshuraj.*
