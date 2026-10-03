@@ -86,22 +86,33 @@ html.dark .header-glow {
 
 /* Dark Mode Overrides */
 html.dark body {
-    background-color: #060814;
-    background-image: 
-        radial-gradient(at 15% 15%, rgba(79, 70, 229, 0.12) 0px, transparent 50%),
-        radial-gradient(at 85% 85%, rgba(14, 165, 233, 0.1) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(124, 58, 237, 0.08) 0px, transparent 60%);
+    background-color: #000000;
+    background-image: none !important;
     color: #f1f5f9;
 }
 html.dark .glass-card {
-    background: #0f1430;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    background: #000000;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
 }
 html.dark .glass-nav {
-    background: rgba(6, 8, 20, 0.85);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+}
+
+/* Force jet black on Tailwind slate background classes in dark mode */
+html.dark .dark\:bg-slate-800,
+html.dark .dark\:bg-slate-900,
+html.dark .dark\:bg-space-900 {
+    background-color: #000000 !important;
+}
+
+/* Make Tailwind slate borders more visible against jet black */
+html.dark .dark\:border-slate-800,
+html.dark .dark\:border-slate-700,
+html.dark .dark\:border-space-800 {
+    border-color: rgba(255, 255, 255, 0.25) !important;
 }
 html.dark .gradient-text {
     color: #38bdf8;
