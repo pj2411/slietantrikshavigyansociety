@@ -74,11 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initEventPopup();
 });
 
-// Theme Switcher Logic (Default: Light Mode on page open)
 function initTheme() {
-    document.documentElement.classList.remove('dark');
-    localStorage.removeItem('theme');
-    updateThemeIcons(false);
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
+    updateThemeIcons(true);
 }
 
 function toggleTheme() {

@@ -35,9 +35,9 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="manifest" href="manifest.json">
 
-    <!-- Immediate Anti-Flicker Light Theme Initialization -->
+    <!-- Immediate Anti-Flicker Dark Theme Initialization -->
     <script>
-        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('dark');
     </script>
 
     <!-- Tailwind CSS CDN -->
@@ -147,6 +147,7 @@
             <!-- Desktop Links -->
             <div class="hidden md:flex items-center space-x-7 text-base font-bold text-slate-800 dark:text-slate-200">
                 <a href="#home" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Home</a>
+                <a href="gallery.html" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Gallery</a>
                 <a href="#publications" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Publications</a>
                 <a href="#events" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Events</a>
                 <a href="#team" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Team</a>
@@ -185,6 +186,7 @@
         <div id="mobile-menu"
             class="hidden md:hidden glass-card border-t border-slate-200 dark:border-slate-800 px-6 py-4 space-y-3 font-semibold text-slate-700 dark:text-slate-200">
             <a href="#home" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Home</a>
+            <a href="gallery.html" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Gallery</a>
             <a href="#publications" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Publications</a>
             <a href="#events" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Events</a>
             <a href="#team" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Team</a>
@@ -738,60 +740,12 @@
 
 
 
-            <!-- Event Highlights Gallery -->
-            <div class="mt-8 pt-8 border-t border-slate-200 dark:border-slate-800">
-                <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
-                    <i class="fa-solid fa-camera text-indigo-500"></i> Event Highlights
-                </h4>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo1.webp')">
-                        <img src="images/events/national_space_day_2026/photo1.webp" alt="Event Photo 1" width="300" height="170" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo2.webp')">
-                        <img src="images/events/national_space_day_2026/photo2.webp" alt="Event Photo 2" width="300" height="170" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo3.webp')">
-                        <img src="images/events/national_space_day_2026/photo3.webp" alt="Event Photo 3" width="300" height="170" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo4.webp')">
-                        <img src="images/events/national_space_day_2026/photo4.webp" alt="Event Photo 4" width="300" height="170" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                </div>
+            <!-- Link to Gallery -->
+            <div class="mt-12 pt-8 text-center border-t border-slate-200 dark:border-slate-800">
+                <a href="gallery.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-indigo-600 dark:bg-sky-500 hover:bg-indigo-700 dark:hover:bg-sky-600 text-white font-bold transition-all shadow-md">
+                    <i class="fa-solid fa-camera"></i> View Event Gallery & Past Archives
+                </a>
             </div>
-
-        </div>
-
-            <!-- Past Events & Archives -->
-            <div class="mt-16 reveal-on-scroll">
-                <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4 mb-8">
-                    <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Past Sessions & Archives</h3>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="past-events-grid">
-                    <!-- Example of a past event card that was moved here -->
-                    <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm opacity-90 hover:opacity-100 transition-opacity flex flex-col">
-                        <div class="w-full overflow-hidden rounded-xl mb-4 relative group border border-slate-100 dark:border-slate-800 cursor-pointer bg-slate-100 dark:bg-slate-800 aspect-video" onclick="openLightbox('images/events/past_events/event1.webp')">
-                            <img src="images/events/past_events/event1.webp" alt="Observational Astronomy Event" width="400" height="225" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                            <div class="absolute inset-0 bg-indigo-500/5 mix-blend-overlay"></div>
-                        </div>
-                        <div class="flex justify-between items-start mb-4">
-                            <span class="px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[10px] font-mono font-bold uppercase">
-                                Past Event
-                            </span>
-                            <span class="text-xs font-mono text-slate-500">12 August 2026</span>
-                        </div>
-                        <h4 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Introduction to Observational Astronomy</h4>
-                        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
-                            An evening under the stars learning how to navigate the night sky using sky maps.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -1144,8 +1098,8 @@
                             <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-amber-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
                                 <i class="fa-solid fa-user-graduate text-3xl text-amber-500"></i>
                             </div>
-                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Mechanical Engineering</p>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Siddharth Singh</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Electronics & Communication Engg</p>
                         </div>
                         <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
                             <span class="inline-block px-3 py-1 rounded bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300 text-xs font-mono font-bold">
@@ -1160,12 +1114,12 @@
                             <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-sky-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
                                 <i class="fa-solid fa-user-graduate text-3xl text-sky-500"></i>
                             </div>
-                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Electronics & Communication Engg</p>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Ananya Bharti</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Computer Science & Engg</p>
                         </div>
                         <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
                             <span class="inline-block px-3 py-1 rounded bg-sky-100 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 text-xs font-mono font-bold">
-                                3rd Year
+                                2nd Year
                             </span>
                         </div>
                     </div>
@@ -1176,59 +1130,11 @@
                             <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-indigo-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
                                 <i class="fa-solid fa-user-graduate text-3xl text-indigo-500"></i>
                             </div>
-                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Computer Science & Engg</p>
+                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Priyanshu Raj</h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Instrumentation And Control Engg.</p>
                         </div>
                         <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
                             <span class="inline-block px-3 py-1 rounded bg-indigo-100 dark:bg-indigo-950/70 text-indigo-700 dark:text-sky-300 text-xs font-mono font-bold">
-                                2nd Year
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Student Member 4 -->
-                    <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
-                        <div>
-                            <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-rose-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
-                                <i class="fa-solid fa-user-graduate text-3xl text-rose-500"></i>
-                            </div>
-                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Electrical Engineering</p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
-                            <span class="inline-block px-3 py-1 rounded bg-rose-100 dark:bg-rose-950/70 text-rose-700 dark:text-rose-300 text-xs font-mono font-bold">
-                                2nd Year
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Student Member 5 -->
-                    <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
-                        <div>
-                            <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-purple-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
-                                <i class="fa-solid fa-user-graduate text-3xl text-purple-500"></i>
-                            </div>
-                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Chemical Engineering</p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
-                            <span class="inline-block px-3 py-1 rounded bg-purple-100 dark:bg-purple-950/70 text-purple-700 dark:text-purple-300 text-xs font-mono font-bold">
-                                1st Year
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Student Member 6 -->
-                    <div class="glass-card rounded-2xl p-6 hover:-translate-y-1 transition-all border border-slate-200 dark:border-slate-700/80 shadow-md flex flex-col justify-between text-center">
-                        <div>
-                            <div class="w-20 h-20 mx-auto rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-emerald-500/40 shadow-md mb-4 flex items-center justify-center text-slate-400 dark:text-slate-500">
-                                <i class="fa-solid fa-user-graduate text-3xl text-emerald-500"></i>
-                            </div>
-                            <h4 class="text-lg font-bold text-slate-900 dark:text-white">Student Name</h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium mt-1">B.Tech Civil Engineering</p>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-slate-200 dark:border-slate-800/80">
-                            <span class="inline-block px-3 py-1 rounded bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 text-xs font-mono font-bold">
                                 2nd Year
                             </span>
                         </div>

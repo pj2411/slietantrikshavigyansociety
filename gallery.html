@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Gallery - SLIET Antriksha Vigyan Society. Event highlights and past sessions.">
+    <title>Gallery | SLIET Antriksha Vigyan Society</title>
+
+    <link rel="preload" as="image" href="images/logo.webp" type="image/webp" fetchpriority="high">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="manifest" href="manifest.json">
+
+    <script>
+        document.documentElement.classList.add('dark');
+    </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
+                        space: ['"Space Grotesk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        space: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            700: '#1e293b',
+                            800: '#0f172a',
+                            900: '#060814',
+                            cyan: '#0284c7',
+                            purple: '#7c3aed',
+                            indigo: '#4f46e5',
+                            pink: '#ec4899',
+                            sky: '#0ea5e9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-slate-50 dark:bg-space-900 text-slate-800 dark:text-slate-100 min-h-screen selection:bg-amber-400 selection:text-slate-950 font-sans transition-colors duration-300 antialiased relative overflow-x-hidden">
+
+    <canvas id="space-stars" class="fixed top-0 left-0 w-full h-full pointer-events-none z-0"></canvas>
+
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+            <a href="index.html#home" class="flex items-center gap-3.5 group shrink-0">
+                <img src="images/logo.webp" alt="SLIET Antriksha Vigyan Society Logo" width="48" height="48" fetchpriority="high" decoding="async"
+                    class="w-12 h-12 object-cover rounded-full shadow-md group-hover:scale-105 transition-transform ring-2 ring-indigo-500/30 dark:ring-sky-400/40 dark:bg-slate-100 dark:p-0.5">
+                <div>
+                    <span class="font-extrabold text-xl sm:text-2xl tracking-widest block leading-none dark:text-white text-slate-900">SAVS</span>
+                    <span class="text-xs text-amber-700 dark:text-sky-400 tracking-widest uppercase font-mono font-bold block mt-1">SLIET LONGOWAL</span>
+                </div>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden md:flex items-center space-x-7 text-base font-bold text-slate-800 dark:text-slate-200">
+                <a href="index.html#home" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Home</a>
+                <a href="gallery.html" class="text-indigo-600 dark:text-sky-400 transition-colors">Gallery</a>
+                <a href="publications.html" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Publications</a>
+                <a href="index.html#events" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Events</a>
+                <a href="index.html#team" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Team</a>
+                <a href="index.html#about" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">About</a>
+            </div>
+
+            <div class="hidden md:flex items-center space-x-4">
+                <button id="theme-toggle" onclick="toggleTheme()" class="p-3 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all border border-slate-300 dark:border-slate-700 shadow-sm" title="Toggle Light/Dark Theme">
+                    <i id="theme-toggle-icon" class="fa-solid fa-sun text-amber-500 text-base"></i>
+                </button>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfLmYrQt1uC_vdSgMGCzhG69OMVua04EKSw8eMSTMLgTGDzFQ/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" class="join-form-link px-6 py-3 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 font-extrabold text-sm hover:opacity-95 transition-all shadow-md flex items-center">
+                    Join Us <i class="fa-solid fa-arrow-right-long ml-1.5 text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <div class="flex md:hidden items-center space-x-2">
+                <button onclick="toggleTheme()" class="p-2 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-amber-400 border border-slate-200 dark:border-slate-700">
+                    <i id="theme-toggle-icon-mobile" class="fa-solid fa-sun text-amber-500"></i>
+                </button>
+                <button id="mobile-menu-btn" class="p-2 text-slate-700 dark:text-slate-300 hover:text-amber-600 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-slate-200 dark:border-slate-800 px-6 py-4 space-y-3 font-semibold text-slate-700 dark:text-slate-200">
+            <a href="index.html#home" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Home</a>
+            <a href="gallery.html" class="block text-indigo-600 dark:text-sky-400 transition-colors py-1">Gallery</a>
+            <a href="publications.html" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Publications</a>
+            <a href="index.html#events" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Events</a>
+            <a href="index.html#team" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Team</a>
+            <a href="index.html#about" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">About</a>
+        </div>
+    </nav>
+
+    <main class="pt-36 pb-24 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <div class="text-center max-w-3xl mx-auto">
+                <span class="px-3.5 py-1.5 rounded-full bg-indigo-100 dark:bg-indigo-950/80 text-indigo-700 dark:text-sky-300 text-xs font-mono font-bold uppercase tracking-widest inline-flex items-center gap-2 mb-3">
+                    <i class="fa-solid fa-camera text-amber-500"></i> Media Gallery
+                </span>
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">Event Highlights</h1>
+                <p class="text-slate-600 dark:text-slate-400 text-base sm:text-lg mt-4 leading-relaxed">
+                    Explore memories from our past sessions, events, and observations.
+                </p>
+            </div>
+
+            <!-- Event Highlights Gallery -->
+            <div class="mt-8 pt-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo1.webp')">
+                        <img src="images/events/national_space_day_2026/photo1.webp" alt="Event Photo 1" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo2.webp')">
+                        <img src="images/events/national_space_day_2026/photo2.webp" alt="Event Photo 2" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo3.webp')">
+                        <img src="images/events/national_space_day_2026/photo3.webp" alt="Event Photo 3" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo4.webp')">
+                        <img src="images/events/national_space_day_2026/photo4.webp" alt="Event Photo 4" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <footer class="py-8 border-t border-slate-200/30 dark:border-white/10 relative z-10 text-center text-xs text-slate-500 dark:text-slate-400 font-medium">
+        <p>© <span id="current-year">2026</span> SLIET Antriksha Vigyan Society. All rights reserved.</p>
+        <div class="mt-2 space-x-4">
+            <a href="privacy-policy.html" class="hover:text-indigo-600 dark:hover:text-sky-400 transition-colors">Privacy Policy</a>
+            <span>•</span>
+            <a href="terms.html" class="hover:text-indigo-600 dark:hover:text-sky-400 transition-colors">Terms & Conditions</a>
+        </div>
+    </footer>
+
+    <!-- Image Lightbox Modal -->
+    <div id="image-lightbox" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/90 backdrop-blur-md p-4 cursor-pointer opacity-0 pointer-events-none transition-opacity duration-200" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white/80 hover:text-white text-3xl font-bold focus:outline-none" onclick="closeLightbox()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <div class="max-w-5xl max-h-[85vh] w-full flex items-center justify-center p-2" onclick="event.stopPropagation()">
+            <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[80vh] rounded-xl object-contain shadow-2xl border border-white/10 transform scale-95 transition-transform duration-200">
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
