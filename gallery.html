@@ -78,7 +78,7 @@
                 <a href="index.html#home" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Home</a>
                 <a href="gallery.html" class="text-indigo-600 dark:text-sky-400 transition-colors">Gallery</a>
                 <a href="publications.html" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Publications</a>
-                <a href="index.html#events" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Events</a>
+                <a href="events.html" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Events</a>
                 <a href="index.html#team" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">Team</a>
                 <a href="index.html#about" class="hover:text-amber-700 dark:hover:text-sky-400 transition-colors">About</a>
             </div>
@@ -107,7 +107,7 @@
             <a href="index.html#home" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Home</a>
             <a href="gallery.html" class="block text-indigo-600 dark:text-sky-400 transition-colors py-1">Gallery</a>
             <a href="publications.html" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Publications</a>
-            <a href="index.html#events" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Events</a>
+            <a href="events.html" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Events</a>
             <a href="index.html#team" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">Team</a>
             <a href="index.html#about" class="block hover:text-amber-600 dark:hover:text-sky-400 transition-colors py-1">About</a>
         </div>
@@ -127,40 +127,173 @@
 
             <!-- Event Highlights Gallery -->
             <div class="mt-8 pt-8">
+
+            <!-- Featured Carousel -->
+            <div class="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-2xl mb-12 group border-4 border-slate-100 dark:border-slate-800">
+                <div id="gallery-carousel" class="flex w-full">
+                    
+        <div class="w-full shrink-0 aspect-video md:aspect-[21/9] relative cursor-pointer" onclick="openLightbox('images/events/inaugural_event/photo4.jpg')">
+            <img src="images/events/inaugural_event/photo4.jpg" alt="KV Exam Photo 2" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="w-full shrink-0 aspect-video md:aspect-[21/9] relative cursor-pointer" onclick="openLightbox('images/events/inaugural_event/photo3.jpg')">
+            <img src="images/events/inaugural_event/photo3.jpg" alt="KV Exam Photo 1" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="w-full shrink-0 aspect-video md:aspect-[21/9] relative cursor-pointer" onclick="openLightbox('images/events/inaugural_event/photo2.jpg')">
+            <img src="images/events/inaugural_event/photo2.jpg" alt="Inaugural Event Photo 2" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+        <div class="w-full shrink-0 aspect-video md:aspect-[21/9] relative cursor-pointer" onclick="openLightbox('images/events/inaugural_event/photo1.jpg')">
+            <img src="images/events/inaugural_event/photo1.jpg" alt="Inaugural Event Photo 1" loading="lazy" decoding="async" class="w-full h-full object-cover">
+        </div>
+                </div>
+                
+                <!-- Controls -->
+                <button onclick="prevSlide()" class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 shadow-lg">
+                    <i class="fa-solid fa-chevron-left text-xl"></i>
+                </button>
+                <button onclick="nextSlide()" class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-14 md:h-14 bg-black/40 hover:bg-black/70 text-white rounded-full flex items-center justify-center backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 focus:opacity-100 shadow-lg">
+                    <i class="fa-solid fa-chevron-right text-xl"></i>
+                </button>
+                
+                <!-- Dots -->
+                <div id="carousel-dots" class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3">
+                    <button onclick="goToSlide(0)" class="carousel-dot w-2 h-2 rounded-full transition-all bg-white scale-125"></button>
+<button onclick="goToSlide(1)" class="carousel-dot w-2 h-2 rounded-full transition-all bg-white/50 hover:bg-white/80"></button>
+<button onclick="goToSlide(2)" class="carousel-dot w-2 h-2 rounded-full transition-all bg-white/50 hover:bg-white/80"></button>
+<button onclick="goToSlide(3)" class="carousel-dot w-2 h-2 rounded-full transition-all bg-white/50 hover:bg-white/80"></button>
+
+                </div>
+            </div>
+
+            <!-- Carousel Script -->
+            <script>
+                const carousel = document.getElementById('gallery-carousel');
+                const dots = document.querySelectorAll('.carousel-dot');
+                const slides = Array.from(carousel.children);
+                const totalSlides = slides.length;
+                
+                // Clone first and last slide for seamless loop
+                const firstClone = slides[0].cloneNode(true);
+                const lastClone = slides[totalSlides - 1].cloneNode(true);
+                
+                carousel.appendChild(firstClone);
+                carousel.insertBefore(lastClone, slides[0]);
+                
+                let currentSlide = 1; // start at 1 because 0 is the lastClone
+                let slideInterval;
+                let isTransitioning = false;
+
+                // Adjust initial position
+                carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+                
+                function updateDots() {
+                    let dotIndex = currentSlide - 1;
+                    if (dotIndex === totalSlides) dotIndex = 0;
+                    if (dotIndex === -1) dotIndex = totalSlides - 1;
+                    
+                    dots.forEach((dot, index) => {
+                        if (index === dotIndex) {
+                            dot.classList.replace('bg-white/50', 'bg-white');
+                            dot.classList.add('scale-125');
+                        } else {
+                            dot.classList.replace('bg-white', 'bg-white/50');
+                            dot.classList.remove('scale-125');
+                        }
+                    });
+                }
+
+                function nextSlide() {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+                    currentSlide++;
+                    carousel.style.transition = 'transform 0.7s ease-in-out';
+                    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    updateDots();
+                    resetInterval();
+                }
+
+                function prevSlide() {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+                    currentSlide--;
+                    carousel.style.transition = 'transform 0.7s ease-in-out';
+                    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    updateDots();
+                    resetInterval();
+                }
+
+                function goToSlide(index) {
+                    if (isTransitioning) return;
+                    isTransitioning = true;
+                    currentSlide = index + 1;
+                    carousel.style.transition = 'transform 0.7s ease-in-out';
+                    carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    updateDots();
+                    resetInterval();
+                }
+
+                carousel.addEventListener('transitionend', () => {
+                    isTransitioning = false;
+                    if (currentSlide === totalSlides + 1) {
+                        carousel.style.transition = 'none';
+                        currentSlide = 1;
+                        carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    }
+                    if (currentSlide === 0) {
+                        carousel.style.transition = 'none';
+                        currentSlide = totalSlides;
+                        carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+                    }
+                });
+
+                function startInterval() {
+                    slideInterval = setInterval(nextSlide, 4000);
+                }
+
+                function resetInterval() {
+                    clearInterval(slideInterval);
+                    startInterval();
+                }
+
+                // Start autoplay
+                startInterval();
+            </script>
+
+
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center">All Photos</h2>
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo1.webp')">
-                        <img src="images/events/national_space_day_2026/photo1.webp" alt="Event Photo 1" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/inaugural_event/photo4.jpg')">
+                        <img src="images/events/inaugural_event/photo4.jpg" alt="KV Exam Photo 2" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo2.webp')">
-                        <img src="images/events/national_space_day_2026/photo2.webp" alt="Event Photo 2" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo3.webp')">
-                        <img src="images/events/national_space_day_2026/photo3.webp" alt="Event Photo 3" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo4.webp')">
-                        <img src="images/events/national_space_day_2026/photo4.webp" alt="Event Photo 4" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
-                    </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/inaugural_event/photo1.jpg')">
-                        <img src="images/events/inaugural_event/photo1.jpg" alt="Inaugural Event Photo 1" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+<div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/inaugural_event/photo3.jpg')">
+                        <img src="images/events/inaugural_event/photo3.jpg" alt="KV Exam Photo 1" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
                     <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/inaugural_event/photo2.jpg')">
                         <img src="images/events/inaugural_event/photo2.jpg" alt="Inaugural Event Photo 2" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/inaugural_event/photo3.jpg')">
-                        <img src="images/events/inaugural_event/photo3.jpg" alt="KV Exam Photo 1" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/inaugural_event/photo1.jpg')">
+                        <img src="images/events/inaugural_event/photo1.jpg" alt="Inaugural Event Photo 1" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
-                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/inaugural_event/photo4.jpg')">
-                        <img src="images/events/inaugural_event/photo4.jpg" alt="KV Exam Photo 2" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo4.webp')">
+                        <img src="images/events/national_space_day_2026/photo4.webp" alt="Event Photo 4" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
                     </div>
-                </div>
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo3.webp')">
+                        <img src="images/events/national_space_day_2026/photo3.webp" alt="Event Photo 3" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo2.webp')">
+                        <img src="images/events/national_space_day_2026/photo2.webp" alt="Event Photo 2" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden shadow-sm hover:shadow-md hover:border-indigo-500 transition-all border border-slate-200 dark:border-slate-700 aspect-video group cursor-pointer relative bg-slate-100 dark:bg-slate-800" onclick="openLightbox('images/events/national_space_day_2026/photo1.webp')">
+                        <img src="images/events/national_space_day_2026/photo1.webp" alt="Event Photo 1" loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                                    </div>
             </div>
 
 
