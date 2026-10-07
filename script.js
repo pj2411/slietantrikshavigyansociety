@@ -75,13 +75,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initTheme() {
-    document.documentElement.classList.add('dark');
-    localStorage.setItem('theme', 'dark');
-    updateThemeIcons(true);
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+        document.documentElement.classList.remove('dark');
+        updateThemeIcons(false);
+    } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        updateThemeIcons(true);
+    }
 }
 
 function toggleTheme() {
     const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
     updateThemeIcons(isDark);
 }
 

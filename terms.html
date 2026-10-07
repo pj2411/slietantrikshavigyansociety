@@ -20,7 +20,9 @@
 
     <!-- Immediate Anti-Flicker Dark Theme Initialization -->
     <script>
-        document.documentElement.classList.add('dark');
+        if (localStorage.getItem('theme') !== 'light') {
+            document.documentElement.classList.add('dark');
+        }
     </script>
 
     <!-- Tailwind CSS CDN -->

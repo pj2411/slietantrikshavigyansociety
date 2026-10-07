@@ -13,7 +13,9 @@
     <link rel="manifest" href="manifest.json">
 
     <script>
-        document.documentElement.classList.add('dark');
+        if (localStorage.getItem('theme') !== 'light') {
+            document.documentElement.classList.add('dark');
+        }
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
